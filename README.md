@@ -30,7 +30,7 @@ Docker images with rtl_433 are available [on the github page of hertzg](https://
 
 See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
 
-## Running
+## 実行方法
 
     rtl_433 -h
 
@@ -70,9 +70,9 @@ See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
 		= File I/O options =
   [-S none | all | unknown | known] Signal auto save. Creates one file per signal.
        Note: Saves raw I/Q samples (uint8 pcm, 2 channel). Preferred mode for generating test files.
-  [-r <filename> | help] Read data from input file instead of a receiver
-  [-w <filename> | help] Save data stream to output file (a '-' dumps samples to stdout)
-  [-W <filename> | help] Save data stream to output file, overwrite existing file
+  [-r <ファイル名> | ヘルプ] Read data from input file instead of a receiver
+  [-w <ファイル名> | ヘルプ] データストリームを出力ファイルに保存する。 (a '-' dumps samples to stdout)
+  [-W <ファイル名> | ヘルプ] データストリームを出力ファイルに保存し、既に存在するファイルに上書きする。
 		= Data output options =
   [-F kv | json | csv | mqtt | influx | syslog | null | help] Produce decoded output in given format.
        Append output to file with :<filename> (e.g. -F csv:log.csv), defaults to stdout.
@@ -291,7 +291,7 @@ See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
 
 
 		= Gain option =
-  [-g <gain>] (デフォルト：自動)
+  [-g <利得>] (デフォルト：自動)
 	For RTL-SDR: gain in dB ("0" is auto).
 	For SoapySDR: gain in dB for automatic distribution ("" is auto), or string of gain elements.
 	E.g. "LNA=20,TIA=8,PGA=2" for LimeSDR.
@@ -396,7 +396,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 
 
 		= Read file option =
-  [-r <filename>] 受信機ではなく、入力ファイルからデータを読み込む。
+  [-r <ファイル名>] 受信機ではなく、入力ファイルからデータを読み込む。
 	Parameters are detected from the full path, file name, and extension.
 
 	A center frequency is detected as (fractional) number suffixed with 'M',
@@ -419,8 +419,8 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 
 
 		= Write file option =
-  [-w <filename>] データストリームを出力ファイルに保存する。(a '-' dumps samples to stdout)
-  [-W <filename>] データストリームを出力ファイルに保存し、既に存在するファイルに上書きする。
+  [-w <ファイル名>] データストリームを出力ファイルに保存する。(a '-' dumps samples to stdout)
+  [-W <ファイル名>] データストリームを出力ファイルに保存し、既に存在するファイルに上書きする。
 	Parameters are detected from the full path, file name, and extension.
 
 	File content and format are detected as parameters, possible options are:
@@ -439,7 +439,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 
 使用例：
 
-| Command | Description
+| コマンド | 詳細
 |---------|------------
 | `rtl_433` | Default receive mode, use the first device found, listen at 433.92 MHz at 250k sample rate.
 | `rtl_433 -C si` | Default receive mode, also convert units to metric system.
@@ -448,7 +448,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 | `rtl_433 -R 1 -R 8 -R 43` | Enable only specific decoders for desired devices.
 | `rtl_433 -A` | Enable pulse analyzer. Summarizes the timings of pulses, gaps, and periods. Can be used with `-R 0` to disable decoders.
 | `rtl_433 -S all -T 120` | Save all detected signals (`g###_###M_###k.cu8`). Run for 2 minutes.
-| `rtl_433 -K FILE -r file_name` | Read a saved data file instead of receiving live data. Tag output with filenames.
+| `rtl_433 -K FILE -r file_name` | 受信機ではなく、入力ファイルからデータを読み込む。 Tag output with filenames.
 | `rtl_433 -F json -M utc \| mosquitto_pub -t home/rtl_433 -l` | Will pipe the output to network as JSON formatted MQTT messages. A test MQTT client can be found in `examples/mqtt_rtl_433_test_client.py`.
 | `rtl_433 -f 433.53M -f 434.02M -H 15` | Will poll two frequencies with 15 seconds hop interval.
 

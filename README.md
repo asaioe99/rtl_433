@@ -9,7 +9,7 @@ Actively tested and supported are Realtek RTL2832 based DVB dongles (using RTL-S
 
 ![rtl_433 screenshot](./docs/screenshot.png)
 
-## Building / Installation
+## ビルド及びインストール方法
 
 rtl_433は、portable C(C99 スタンダード)で記述されており、Linux (also embedded)、MacOS、そしてWindows systemsでコンパイル可能です。
 Older compilers and toolchains are supported as a key-goal.

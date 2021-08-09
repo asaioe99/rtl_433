@@ -46,12 +46,12 @@ See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
   [-g <gain> | help] (default: auto)
   [-t <settings>] apply a list of keyword=value settings for SoapySDR devices
        e.g. -t "antenna=A,bandwidth=4.5M,rfnotch_ctrl=false"
-  [-f <frequency>] Receive frequency(s) (default: 433920000 Hz)
+  [-f <周波数>] Receive frequency(s) (default: 433920000 Hz)
   [-H <seconds>] Hop interval for polling of multiple frequencies (default: 600 seconds)
   [-p <ppm_error] Correct rtl-sdr tuner frequency offset error (default: 0)
   [-s <sample rate>] Set sample rate (default: 250000 Hz)
 		= Demodulator options =
-  [-R <device> | help] Enable only the specified device decoding protocol (can be used multiple times)
+  [-R <デバイス> | ヘルプ] Enable only the specified device decoding protocol (can be used multiple times)
        Specify a negative number to disable a device decoding protocol (can be used multiple times)
   [-G] Enable blacklisted device decoding protocols, for testing only.
   [-X <spec> | help] Add a general purpose decoder (prepend -R 0 to disable all decoders)
@@ -60,7 +60,7 @@ See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
   [-Y minlevel=<dB level>] Manual minimum detection level used to determine pulses (-1.0 to -99.0).
   [-Y minsnr=<dB level>] Minimum SNR to determine pulses (1.0 to 99.0).
   [-Y autolevel] Set minlevel automatically based on average estimated noise.
-  [-Y squelch] Skip frames below estimated noise level to reduce cpu load.
+  [-Y スケルチ] Skip frames below estimated noise level to reduce cpu load.
   [-Y ampest | magest] Choose amplitude or magnitude level estimator.
 		= Analyze/Debug options =
   [-a] 解析モード。 Print a textual description of the signal.
@@ -83,7 +83,7 @@ See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
   [-n <value>] Specify number of samples to take (each sample is an I/Q pair)
   [-T <seconds>] Specify number of seconds to run, also 12:34 or 1h23m45s
   [-E hop | quit] Hop/Quit after outputting successful event(s)
-  [-h] Output this usage help and exit
+  [-h] この使用方法を表示し、終了する。
        Use -d, -g, -R, -X, -F, -M, -r, -w, or -W without argument for more help
 
 

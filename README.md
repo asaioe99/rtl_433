@@ -4,7 +4,7 @@ rtl_433は（名前に反して）汎用のデータレシーバであり、主�
 公式のソースコードは、https://github.com/merbanan/rtl_433/　のレポジトリにあります。
 資料及び関連のプロジェクトについては、 https://triq.org/ を参照してください。
 
-It works with [RTL-SDR](https://github.com/osmocom/rtl-sdr/) and/or [SoapySDR](https://github.com/pothosware/SoapySDR/).
+rtl_433は、 [RTL-SDR](https://github.com/osmocom/rtl-sdr/) 及び [SoapySDR](https://github.com/pothosware/SoapySDR/)で動作します。
 Actively tested and supported are Realtek RTL2832 based DVB dongles (using RTL-SDR) and LimeSDR ([LimeSDR USB](https://www.crowdsupply.com/lime-micro/limesdr) and [LimeSDR mini](https://www.crowdsupply.com/lime-micro/limesdr-mini) engineering samples kindly provided by [MyriadRf](https://myriadrf.org/)), PlutoSDR, HackRF One (using SoapySDR drivers), as well as SoapyRemote.
 
 ![rtl_433 screenshot](./docs/screenshot.png)

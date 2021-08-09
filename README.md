@@ -11,7 +11,7 @@ Actively tested and supported are Realtek RTL2832 based DVB dongles (using RTL-S
 
 ## Building / Installation
 
-rtl_433 is written in portable C (C99 standard) and known to compile on Linux (also embedded), MacOS, and Windows systems.
+rtl_433は、portable C(C99 スタンダード)で記述されており、Linux (also embedded)、MacOS、そしてWindows systemsでコンパイル可能です。
 Older compilers and toolchains are supported as a key-goal.
 Low resource consumption and very few dependencies allow rtl_433 to run on embedded hardware like (repurposed) routers.
 Systems with 32-bit i686 and 64-bit x86-64 as well as (embedded) ARM, like the Raspberry Pi and PlutoSDR are well supported.
@@ -37,8 +37,8 @@ See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
 ```
 
 		= General options =
-  [-V] Output the version string and exit
-  [-v] Increase verbosity (can be used multiple times).
+  [-V] バージョン情報を表示し、終了する。
+  [-v] Increase verbosity (このオプションは複数回追加して使用できます).
        -v : verbose, -vv : verbose decoders, -vvv : debug decoders, -vvvv : trace decoding).
   [-c <path>] Read config options from a file
 		= Tuner options =
@@ -63,8 +63,8 @@ See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
   [-Y squelch] Skip frames below estimated noise level to reduce cpu load.
   [-Y ampest | magest] Choose amplitude or magnitude level estimator.
 		= Analyze/Debug options =
-  [-a] Analyze mode. Print a textual description of the signal.
-  [-A] Pulse Analyzer. Enable pulse analysis and decode attempt.
+  [-a] 解析モード。 Print a textual description of the signal.
+  [-A] パルスアナライザ。パルス解析を可能とし、デコードを試みる。
        Disable all decoders with -R 0 if you want analyzer output only.
   [-y <code>] Verify decoding of demodulated test data (e.g. "{25}fb2dd58") with enabled devices
 		= File I/O options =
@@ -291,14 +291,14 @@ See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
 
 
 		= Gain option =
-  [-g <gain>] (default: auto)
+  [-g <gain>] (デフォルト：自動)
 	For RTL-SDR: gain in dB ("0" is auto).
 	For SoapySDR: gain in dB for automatic distribution ("" is auto), or string of gain elements.
 	E.g. "LNA=20,TIA=8,PGA=2" for LimeSDR.
 
 
 		= Flex decoder spec =
-Use -X <spec> to add a flexible general purpose decoder.
+-X <spec> オプションにより、汎用フレックスデコーダを使用可能にできる。
 
 <spec> is "key=value[,key=value...]"
 Common keys are:
@@ -313,16 +313,16 @@ Common keys are:
 where:
 <name> can be any descriptive name tag you need in the output
 <modulation> is one of:
-	OOK_MC_ZEROBIT :  Manchester Code with fixed leading zero bit
-	OOK_PCM :         Pulse Code Modulation (RZ or NRZ)
-	OOK_PPM :         Pulse Position Modulation
-	OOK_PWM :         Pulse Width Modulation
-	OOK_DMC :         Differential Manchester Code
+	OOK_MC_ZEROBIT :  マンチェスター符号 with fixed leading zero bit
+	OOK_PCM :         パルス符号変調 (RZ or NRZ)
+	OOK_PPM :         パルス位置変調
+	OOK_PWM :         パルス幅変調
+	OOK_DMC :         Differential マンチェスター符号
 	OOK_PIWM_RAW :    Raw Pulse Interval and Width Modulation
 	OOK_PIWM_DC :     Differential Pulse Interval and Width Modulation
-	OOK_MC_OSV1 :     Manchester Code for OSv1 devices
-	FSK_PCM :         FSK Pulse Code Modulation
-	FSK_PWM :         FSK Pulse Width Modulation
+	OOK_MC_OSV1 :     マンチェスター符号 for OSv1 devices
+	FSK_PCM :         FSK パルス符号変調
+	FSK_PWM :         FSK パルス幅変調
 	FSK_MC_ZEROBIT :  Manchester Code with fixed leading zero bit
 <short>, <long>, <sync> are nominal modulation timings in us,
 <reset>, <gap>, <tolerance> are maximum modulation timings in us:
@@ -354,7 +354,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 
 
 
-		= Output format option =
+		= 出力フォーマットオプション =
   [-F kv|json|csv|mqtt|influx|syslog|null] Produce decoded output in given format.
 	Without this option the default is KV output. Use "-F null" to remove the default.
 	Append output to file with :<filename> (e.g. -F csv:log.csv), defaults to stdout.
@@ -396,7 +396,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 
 
 		= Read file option =
-  [-r <filename>] Read data from input file instead of a receiver
+  [-r <filename>] 受信機ではなく、入力ファイルからデータを読み込む。
 	Parameters are detected from the full path, file name, and extension.
 
 	A center frequency is detected as (fractional) number suffixed with 'M',
@@ -419,8 +419,8 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 
 
 		= Write file option =
-  [-w <filename>] Save data stream to output file (a '-' dumps samples to stdout)
-  [-W <filename>] Save data stream to output file, overwrite existing file
+  [-w <filename>] データストリームを出力ファイルに保存する。(a '-' dumps samples to stdout)
+  [-W <filename>] データストリームを出力ファイルに保存し、既に存在するファイルに上書きする。
 	Parameters are detected from the full path, file name, and extension.
 
 	File content and format are detected as parameters, possible options are:
@@ -437,7 +437,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 ```
 
 
-Some examples:
+使用例：
 
 | Command | Description
 |---------|------------

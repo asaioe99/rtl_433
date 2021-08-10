@@ -455,23 +455,24 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 
 ## Google Group
 
-Join the Google group, rtl_433, for more information about rtl_433:
+rtl_433について更なる情報が欲しい方は、Googleグループに参加しましょう。：
 https://groups.google.com/forum/#!forum/rtl_433
 
 
-## Troubleshooting
+## トラブルシューティング
 
-If you see this error:
+下記のエラーが表示された場合:
 
     Kernel driver is active, or device is claimed by second instance of librtlsdr.
     In the first case, please either detach or blacklist the kernel module
     (dvb_usb_rtl28xxu), or enable automatic detaching at compile time.
 
-then
+その時は、
 
     sudo rmmod dvb_usb_rtl28xxu rtl2832
 
+を行ってください。
 
-## Releases
+## リリース
 
-Version numbering scheme used is year.month. We try to keep the API compatible between releases but focus is on maintainablity.
+バージョンの表記法は、 年.月.　とします。 努めて API は各リリース間での互換性を保つようにしますが、あくまでもメンテナンス性を優先します。

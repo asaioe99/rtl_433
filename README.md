@@ -337,7 +337,7 @@ PWM     short: Nominal width of '1' pulse [us]
 common    gap: 次のビット列が始まるまでの最大空白時間 [us]
         reset: Maximum gap size before End Of Message [us]
     tolerance: Maximum pulse deviation [us] (optional).
-Available options are:
+選択可能なオプションは下記の通り:
 	bits=<n> : only match if at least one row has <n> bits
 	rows=<n> : only match if there are <n> rows
 	repeats=<n> : only match if some row is repeated <n> times
@@ -376,7 +376,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 	Specify host/port for syslog with e.g. -F syslog:127.0.0.1:1514
 
 
-		= Meta information option =
+		= メタ情報オプション =
   [-M time[:<options>]|protocol|level|noise[:<secs>]|stats|bits] Add various metadata to every output line.
 	Use "time" to add current date and time meta data (preset for live inputs).
 	Use "time:rel" to add sample position meta data (preset for read-file and stdin).
@@ -396,7 +396,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 	Use "bits" to add bit representation to code outputs (for debug).
 
 
-		= Read file option =
+		= 読み込みファイルオプション =
   [-r <ファイル名>] 受信機ではなく、入力ファイルからデータを読み込む。
 	Parameters are detected from the full path, file name, and extension.
 
@@ -419,7 +419,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 	E.g reading complex 32-bit float: CU32:-
 
 
-		= Write file option =
+		= 書き込みファイルオプション =
   [-w <ファイル名>] データストリームを出力ファイルに保存する。(a '-' dumps samples to stdout)
   [-W <ファイル名>] データストリームを出力ファイルに保存し、既に存在するファイルに上書きする。
 	Parameters are detected from the full path, file name, and extension.
@@ -442,18 +442,18 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 
 | コマンド | 詳細
 |---------|------------
-| `rtl_433` | Default receive mode, use the first device found, listen at 433.92 MHz at 250k sample rate.
+| `rtl_433` | デフォルトの受信モードであり、最初に見つかったデバイスを使用して 433.92 MHz を、サンプリングレート 250k で受信します。
 | `rtl_433 -C si` | Default receive mode, also convert units to metric system.
-| `rtl_433 -f 868M -s 1024k` | Listen at 868 MHz and 1024k sample rate.
+| `rtl_433 -f 868M -s 1024k` | 868 MHz を、サンプリングレート 1024k で受信します。
 | `rtl_433 -M hires -M level` | Report microsecond accurate timestamps and add reception levels (depending on gain).
 | `rtl_433 -R 1 -R 8 -R 43` | Enable only specific decoders for desired devices.
-| `rtl_433 -A` | Enable pulse analyzer. Summarizes the timings of pulses, gaps, and periods. Can be used with `-R 0` to disable decoders.
-| `rtl_433 -S all -T 120` | Save all detected signals (`g###_###M_###k.cu8`). Run for 2 minutes.
+| `rtl_433 -A` | パルス解析を有効にします。パルスのタイミング、空白、期間を要約し表示します。Can be used with `-R 0` to disable decoders.
+| `rtl_433 -S all -T 120` | 検出したすべての信号を次の様式 (`g###_###M_###k.cu8`)で保存し、2分間動作します。
 | `rtl_433 -K FILE -r file_name` | 受信機ではなく、入力ファイルからデータを読み込む。 Tag output with filenames.
 | `rtl_433 -F json -M utc \| mosquitto_pub -t home/rtl_433 -l` | Will pipe the output to network as JSON formatted MQTT messages. A test MQTT client can be found in `examples/mqtt_rtl_433_test_client.py`.
 | `rtl_433 -f 433.53M -f 434.02M -H 15` | Will poll two frequencies with 15 seconds hop interval.
 
-## Google Group
+## Googleグループ
 
 rtl_433について更なる情報が欲しい方は、Googleグループに参加しましょう。：
 https://groups.google.com/forum/#!forum/rtl_433

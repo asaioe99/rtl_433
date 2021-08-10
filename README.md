@@ -277,7 +277,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 * Disabled by default, use -R n or -G
 
 
-		= Input device selection =
+		= 入力デバイスの選択 =
 	RTL-SDR device driver is available.
   [-d <RTL-SDR USB device index>] (default: 0)
   [-d :<RTL-SDR USB device serial (can be set with rtl_eeprom -s)>]
@@ -290,7 +290,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 	Specify host/port to connect to with e.g. -d rtl_tcp:127.0.0.1:1234
 
 
-		= Gain option =
+		= 利得オプション =
   [-g <利得>] (デフォルト：自動)
 	For RTL-SDR: gain in dB ("0" is auto).
 	For SoapySDR: gain in dB for automatic distribution ("" is auto), or string of gain elements.
@@ -299,6 +299,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 
 		= Flex decoder spec =
 -X <spec> オプションにより、汎用フレックスデコーダを使用可能にできる。
+（訳注：パルス変調に関する各種定義は、https://www.keyence.co.jp/ss/products/recorder/lab/pulse/base.jspが詳しい）
 
 <spec> is "key=value[,key=value...]"
 Common keys are:
@@ -312,7 +313,7 @@ Common keys are:
 	tolerance=<tolerance> (or: t=<tolerance>)
 where:
 <name> can be any descriptive name tag you need in the output
-<modulation> is one of:
+<変調方式> は下記のいずれかである:
 	OOK_MC_ZEROBIT :  マンチェスター符号 with fixed leading zero bit
 	OOK_PCM :         パルス符号変調 (RZ or NRZ)
 	OOK_PPM :         パルス位置変調
@@ -326,14 +327,14 @@ where:
 	FSK_MC_ZEROBIT :  Manchester Code with fixed leading zero bit
 <short>, <long>, <sync> are nominal modulation timings in us,
 <reset>, <gap>, <tolerance> are maximum modulation timings in us:
-PCM     short: Nominal width of pulse [us]
-         long: Nominal width of bit period [us]
+PCM     short: 公称パルス幅 [us]
+         long: 公称ビット期間幅 [us]
 PPM     short: Nominal width of '0' gap [us]
          long: Nominal width of '1' gap [us]
 PWM     short: Nominal width of '1' pulse [us]
          long: Nominal width of '0' pulse [us]
          sync: Nominal width of sync pulse [us] (optional)
-common    gap: Maximum gap size before new row of bits [us]
+common    gap: 次のビット列が始まるまでの最大空白時間 [us]
         reset: Maximum gap size before End Of Message [us]
     tolerance: Maximum pulse deviation [us] (optional).
 Available options are:

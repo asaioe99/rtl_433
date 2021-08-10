@@ -24,11 +24,11 @@ On FreeBSD, `pkg install rtl-433`.
 
 On MacOS, `brew install rtl_433`.
 
-Docker images with rtl_433 are available [on the github page of hertzg](https://github.com/hertzg/rtl_433_docker).
+rtl_433のDockerイメージは以下で有効です。 [on the github page of hertzg](https://github.com/hertzg/rtl_433_docker).
 
-## How to add support for unsupported sensors
+## 未サポートのセンサを追加する方法
 
-See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
+[CONTRIBUTING.md](./docs/CONTRIBUTING.md).　を参照のこと。
 
 ## 実行方法
 
@@ -44,15 +44,15 @@ See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
 		= Tuner options =
   [-d <RTL-SDR USB device index> | :<RTL-SDR USB device serial> | <SoapySDR device query> | rtl_tcp | help]
   [-g <gain> | help] (default: auto)
-  [-t <settings>] apply a list of keyword=value settings for SoapySDR devices
+  [-t <設定>] apply a list of keyword=value settings for SoapySDR devices
        e.g. -t "antenna=A,bandwidth=4.5M,rfnotch_ctrl=false"
   [-f <周波数>] Receive frequency(s) (default: 433920000 Hz)
-  [-H <seconds>] Hop interval for polling of multiple frequencies (default: 600 seconds)
+  [-H <秒数>] Hop interval for polling of multiple frequencies (default: 600 seconds)
   [-p <ppm_error] Correct rtl-sdr tuner frequency offset error (default: 0)
   [-s <sample rate>] Set sample rate (default: 250000 Hz)
 		= Demodulator options =
-  [-R <デバイス> | ヘルプ] Enable only the specified device decoding protocol (can be used multiple times)
-       Specify a negative number to disable a device decoding protocol (can be used multiple times)
+  [-R <デバイス> | ヘルプ] Enable only the specified device decoding protocol (このオプションは複数回追加して使用できます)
+       Specify a negative number to disable a device decoding protocol (このオプションは複数回追加して使用できます)
   [-G] Enable blacklisted device decoding protocols, for testing only.
   [-X <spec> | help] Add a general purpose decoder (prepend -R 0 to disable all decoders)
   [-Y auto | classic | minmax] FSK pulse detector mode.
@@ -81,7 +81,7 @@ See [CONTRIBUTING.md](./docs/CONTRIBUTING.md).
   [-K FILE | PATH | <tag> | <key>=<tag>] Add an expanded token or fixed tag to every output line.
   [-C native | si | customary] Convert units in decoded output.
   [-n <value>] Specify number of samples to take (each sample is an I/Q pair)
-  [-T <seconds>] Specify number of seconds to run, also 12:34 or 1h23m45s
+  [-T <秒数>] Specify number of seconds to run, also 12:34 or 1h23m45s
   [-E hop | quit] Hop/Quit after outputting successful event(s)
   [-h] この使用方法を表示し、終了する。
        Use -d, -g, -R, -X, -F, -M, -r, -w, or -W without argument for more help

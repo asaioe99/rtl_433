@@ -1,11 +1,11 @@
 # rtl_433
 
-rtl_433は（名前に反して）汎用のデータレシーバであり、主として433.92 MHz、868 MHz（SRD）、315 MHz、345 MHz、及び 915 MHz ISM バンドを目的としたものです。
+rtl_433は（名前に反して）汎用のRFプロトコルアナライザであり、主として433.92 MHz、868 MHz（SRD）、315 MHz、345 MHz、及び 915 MHz ISM バンドを目的としたものです。
 公式のソースコードは、https://github.com/merbanan/rtl_433/　のレポジトリにあります。
 資料及び関連のプロジェクトについては、 https://triq.org/ を参照してください。
 
 rtl_433は、 [RTL-SDR](https://github.com/osmocom/rtl-sdr/) 及び [SoapySDR](https://github.com/pothosware/SoapySDR/)で動作します。
-Actively tested and supported are Realtek RTL2832 based DVB dongles (using RTL-SDR) and LimeSDR ([LimeSDR USB](https://www.crowdsupply.com/lime-micro/limesdr) and [LimeSDR mini](https://www.crowdsupply.com/lime-micro/limesdr-mini) engineering samples kindly provided by [MyriadRf](https://myriadrf.org/)), PlutoSDR, HackRF One (using SoapySDR drivers), as well as SoapyRemote.
+Realtek RTL2832 based DVB dongles (using RTL-SDR) 及び LimeSDR ([LimeSDR USB](https://www.crowdsupply.com/lime-micro/limesdr) 、 [LimeSDR mini](https://www.crowdsupply.com/lime-micro/limesdr-mini) engineering samples kindly provided by [MyriadRf](https://myriadrf.org/)), PlutoSDR, HackRF One (SoapySDR ドライバを使用している)、同様に SoapyRemote　のデバイスについて、開発とサポートが活発に行われております。.
 
 ![rtl_433 screenshot](./docs/screenshot.png)
 

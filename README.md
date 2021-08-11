@@ -14,9 +14,9 @@ Actively tested and supported are Realtek RTL2832 based DVB dongles (using RTL-S
 rtl_433は、portable C(C99 スタンダード)で記述されており、Linux (also embedded)、MacOS、そしてWindows systemsでコンパイル可能です。
 Older compilers and toolchains are supported as a key-goal.
 Low resource consumption and very few dependencies allow rtl_433 to run on embedded hardware like (repurposed) routers.
-Systems with 32-bit i686 and 64-bit x86-64 as well as (embedded) ARM, like the Raspberry Pi and PlutoSDR are well supported.
+32-bit i686 及び 64-bit x86-64 、同様に (embedded) ARM、つまりRaspberry Pi や PlutoSDR に使用されているアーキテクチャはサポートの対象となっています。
 
-See [BUILDING.md](docs/BUILDING.md)
+詳細は右記参照のこと [BUILDING.md](docs/BUILDING.md)
 
 On Debian (sid) or Ubuntu (19.10+), `apt-get install rtl-433` for other distros check https://repology.org/project/rtl-433/versions
 
@@ -50,7 +50,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-H <秒数>] Hop interval for polling of multiple frequencies (default: 600 seconds)
   [-p <ppm_error] Correct rtl-sdr tuner frequency offset error (default: 0)
   [-s <sample rate>] Set sample rate (default: 250000 Hz)
-		= Demodulator options =
+		= 復調オプション =
   [-R <デバイス> | ヘルプ] Enable only the specified device decoding protocol (このオプションは複数回追加して使用できます)
        Specify a negative number to disable a device decoding protocol (このオプションは複数回追加して使用できます)
   [-G] Enable blacklisted device decoding protocols, for testing only.
@@ -68,7 +68,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
        Disable all decoders with -R 0 if you want analyzer output only.
   [-y <code>] Verify decoding of demodulated test data (e.g. "{25}fb2dd58") with enabled devices
 		= File I/O options =
-  [-S none | all | unknown | known] Signal auto save. Creates one file per signal.
+  [-S none | all | unknown | known] 信号の自動保存。 Creates one file per signal.
        Note: Saves raw I/Q samples (uint8 pcm, 2 channel). Preferred mode for generating test files.
   [-r <ファイル名> | ヘルプ] Read data from input file instead of a receiver
   [-w <ファイル名> | ヘルプ] データストリームを出力ファイルに保存する。 (a '-' dumps samples to stdout)

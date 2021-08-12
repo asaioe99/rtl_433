@@ -5,20 +5,20 @@ rtl_433は（名前に反して）汎用のRFプロトコルアナライザで�
 資料及び関連のプロジェクトについては、 https://triq.org/ を参照してください。
 
 rtl_433は、 [RTL-SDR](https://github.com/osmocom/rtl-sdr/) 及び [SoapySDR](https://github.com/pothosware/SoapySDR/)で動作します。
-Realtek RTL2832 based DVB dongles (using RTL-SDR) 及び LimeSDR ([LimeSDR USB](https://www.crowdsupply.com/lime-micro/limesdr) 、 [LimeSDR mini](https://www.crowdsupply.com/lime-micro/limesdr-mini) engineering samples kindly provided by [MyriadRf](https://myriadrf.org/)), PlutoSDR, HackRF One (SoapySDR ドライバを使用している)、同様に SoapyRemote　のデバイスについて、開発とサポートが活発に行われております。.
+Realtek RTL2832 based DVB dongles (using RTL-SDR) 及び LimeSDR ([LimeSDR USB](https://www.crowdsupply.com/lime-micro/limesdr) 、 [LimeSDR mini](https://www.crowdsupply.com/lime-micro/limesdr-mini) [MyriadRf](https://myriadrf.org/) により、開発者向けのサンプルが配布されています), PlutoSDR, HackRF One (SoapySDR ドライバを使用している)、同様に SoapyRemote　のデバイスについて、開発とサポートが活発に行われております。
 
 ![rtl_433 screenshot](./docs/screenshot.png)
 
 ## ビルド及びインストール方法
 
 rtl_433は、portable C(C99 スタンダード)で記述されており、Linux (also embedded)、MacOS、そしてWindows systemsでコンパイル可能です。
-Older compilers and toolchains are supported as a key-goal.
+過去のコンパイラやツールチェーンのサポートも重要な目標です。
 Low resource consumption and very few dependencies allow rtl_433 to run on embedded hardware like (repurposed) routers.
 32-bit i686 及び 64-bit x86-64 、同様に (embedded) ARM、つまりRaspberry Pi や PlutoSDR に使用されているアーキテクチャはサポートの対象となっています。
 
 詳細は右記参照のこと [BUILDING.md](docs/BUILDING.md)
 
-On Debian (sid) or Ubuntu (19.10+), `apt-get install rtl-433` for other distros check https://repology.org/project/rtl-433/versions
+Debian (sid) 又は Ubuntu (19.10+) 環境下では、 `apt-get install rtl-433` for other distros check https://repology.org/project/rtl-433/versions
 
 On FreeBSD, `pkg install rtl-433`.
 
@@ -36,12 +36,12 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 
 ```
 
-		= General options =
+		= 一般オプション =
   [-V] バージョン情報を表示し、終了する。
   [-v] Increase verbosity (このオプションは複数回追加して使用できます).
        -v : verbose, -vv : verbose decoders, -vvv : debug decoders, -vvvv : trace decoding).
-  [-c <path>] Read config options from a file
-		= Tuner options =
+  [-c <path>] 設定オプションをファイルから読み込む。
+		= Tuner オプション =
   [-d <RTL-SDR USB device index> | :<RTL-SDR USB device serial> | <SoapySDR device query> | rtl_tcp | help]
   [-g <gain> | help] (default: auto)
   [-t <設定>] apply a list of keyword=value settings for SoapySDR devices
@@ -55,7 +55,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
        Specify a negative number to disable a device decoding protocol (このオプションは複数回追加して使用できます)
   [-G] Enable blacklisted device decoding protocols, for testing only.
   [-X <spec> | help] Add a general purpose decoder (prepend -R 0 to disable all decoders)
-  [-Y auto | classic | minmax] FSK pulse detector mode.
+  [-Y auto | classic | minmax] FSK パルス検出モード
   [-Y level=<dB level>] Manual detection level used to determine pulses (-1.0 to -30.0) (0=auto).
   [-Y minlevel=<dB level>] Manual minimum detection level used to determine pulses (-1.0 to -99.0).
   [-Y minsnr=<dB level>] Minimum SNR to determine pulses (1.0 to 99.0).
@@ -63,7 +63,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-Y スケルチ] Skip frames below estimated noise level to reduce cpu load.
   [-Y ampest | magest] Choose amplitude or magnitude level estimator.
 		= Analyze/Debug options =
-  [-a] 解析モード。 Print a textual description of the signal.
+  [-a] 解析モード。 受信信号の詳細をテキストで表示する。
   [-A] パルスアナライザ。パルス解析を可能とし、デコードを試みる。
        Disable all decoders with -R 0 if you want analyzer output only.
   [-y <code>] Verify decoding of demodulated test data (e.g. "{25}fb2dd58") with enabled devices
@@ -73,7 +73,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-r <ファイル名> | ヘルプ] Read data from input file instead of a receiver
   [-w <ファイル名> | ヘルプ] データストリームを出力ファイルに保存する。 (a '-' dumps samples to stdout)
   [-W <ファイル名> | ヘルプ] データストリームを出力ファイルに保存し、既に存在するファイルに上書きする。
-		= Data output options =
+		= データ出力オプション =
   [-F kv | json | csv | mqtt | influx | syslog | null | help] Produce decoded output in given format.
        Append output to file with :<filename> (e.g. -F csv:log.csv), defaults to stdout.
        Specify host/port for syslog with e.g. -F syslog:127.0.0.1:1514
@@ -88,7 +88,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 
 
 
-		= Supported device protocols =
+		= サポート対象のデバイスプロトコル =
     [01]  Silvercrest Remote Control
     [02]  Rubicson Temperature Sensor
     [03]  Prologue, FreeTec NC-7104, NC-7159-675 temperature sensor
@@ -302,7 +302,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 （訳注：パルス変調に関する各種定義は、https://www.keyence.co.jp/ss/products/recorder/lab/pulse/base.jspが詳しい）
 
 <spec> is "key=value[,key=value...]"
-Common keys are:
+共通の keys は以下の通り:
 	name=<name> (or: n=<name>)
 	modulation=<modulation> (or: m=<modulation>)
 	short=<short> (or: s=<short>)

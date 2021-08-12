@@ -278,9 +278,9 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 
 
 		= 入力デバイスの選択 =
-	RTL-SDR device driver is available.
-  [-d <RTL-SDR USB device index>] (default: 0)
-  [-d :<RTL-SDR USB device serial (can be set with rtl_eeprom -s)>]
+	RTL-SDR のデバイスドライバは利用可能です。
+  [-d <RTL-SDR USB デバイスインデックス>] (default: 0)
+  [-d :<RTL-SDR USB デバイスシリアル (can be set with rtl_eeprom -s)>]
 	To set gain for RTL-SDR use -g <gain> to set an overall gain in dB.
 	SoapySDR device driver is available.
   [-d ""] Open default SoapySDR device

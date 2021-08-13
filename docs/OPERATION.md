@@ -1,8 +1,8 @@
-# Basic rtl_433 operation
+# rtl_433 の基本動作
 
-A startup rtl_433 will read config files and parse command line arguments, then it will loop through these steps:
+rtl_433 は起動時に設定ファイルとコマンドライン引数の読み込みを行います。その後、以下のステップで動作します：
 
-- Inputs
+- 入力（Inputs）
 - Loaders
 - Processing
 - Analysis
@@ -10,15 +10,15 @@ A startup rtl_433 will read config files and parse command line arguments, then 
 - Dumper
 - Outputs
 
-rtl_433 will either acquire a live signal from an input or read a sample file with a loader.
-Then process that signal, analyse it's properties (if enabled) and write the signal with dumpers (if enabled).
-The raw data is run through decoders to produce decoded output data.
+rtl_433 は、リアルタイムの信号を入力デバイスから受け取るか、ローダによりサンプルファイルを読み込みます。
+その後、信号を処理し、（可能であれば）その性質を解析し、（同じく可能であれば）ダンパに信号を書き込みます。
+生のデータは、復号済みの出力データを生成するために、デコーダへ入力されます。
 
-## Inputs
+## 入力（Inputs）
 
-Possible inputs are RTL-SDR, SoapySDR, and rtl_tcp.
+使用可能な入力デバイスは、 RTL-SDR、SoapySDR、及び rtl_tcp となります。
 
-Inputs are selected with the `-d` option:
+入力デバイスは、`-d` オプションで選択します:
 ```
   [-d <RTL-SDR USB device index> | :<RTL-SDR USB device serial> | <SoapySDR device query> | rtl_tcp | help]
 ```

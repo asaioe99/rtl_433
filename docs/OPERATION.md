@@ -25,14 +25,14 @@ rtl_433 は、リアルタイムの信号を入力デバイスから受け取る
 
 ### RTL-SDR
 
-For RTL-SDR use the `-d` option as:
+RTL-SDR の場合、`-d` オプションを下記の通りに使用してください:
 
 ```
   [-d <RTL-SDR USB device index>] (default: 0)
   [-d :<RTL-SDR USB device serial (can be set with rtl_eeprom -s)>]
 ```
 
-If RTL-SDR support is compiled in (see the first line of `rtl_433 -V`) the default input will be the first available RTL-SDR device.
+If RTL-SDR support is compiled in ( `rtl_433 -V` の実行結果の最初の行を見よ) the default input will be the first available RTL-SDR device.
 This can also explicitly be selected with `rtl_433 -d 0`. Use e.g. `rtl_433 -d 1` to select the second device.
 
 If you have set a serial number on your device you can use that number prefixed with a colon to select a device,
@@ -72,9 +72,9 @@ The rtl_tcp input is always available. The default host is "localhost" and defau
 
 Use e.g. `rtl_433 -d rtl_tcp:192.168.2.1` or `rtl_433 -d rtl_tcp:192.168.2.1:2143` to select a specific source.
 
-### Input Gain
+### 受信利得
 
-The input device gain can be set with the `-g` option:
+受信利得は `-g` オプションにより設定できる:
 
 ```
   [-g <gain>] (default: auto)
@@ -84,7 +84,7 @@ The input device gain can be set with the `-g` option:
 
 ```
 
-The default gain setting will be automatic gain (AGC enabled).
+デフォルトの入力利得は自動（AGC　が可能なら）となる。
 
 For RTL-SDR the gain is given in dB, where "0" selects automatic gain.
 

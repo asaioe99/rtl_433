@@ -61,7 +61,7 @@ A sample format of `CU8` is tried first, but unlikely to be supported by SoapySD
 
 ### rtl_tcp
 
-For rtl_tcp use the `-d` option as:
+rtl_tcp の場合、`-d` オプションを下記の通りに使用してください:
 
 ```
   [-d rtl_tcp[:[//]host[:port]] (default: localhost:1234)
@@ -94,7 +94,7 @@ and string of gain elements sets the given gain stages individually.
 
 Use e.g. `-g "LNA=20,TIA=8,PGA=2"` for LimeSDR.
 
-### Antenna and settings
+### アンテナ及びその他の設定
 
 For SoapySDR the antenna and various other settings can be selected with `-t`:
 
@@ -103,20 +103,20 @@ For SoapySDR the antenna and various other settings can be selected with `-t`:
        e.g. -t "antenna=A,bandwidth=4.5M,rfnotch_ctrl=false"
 ```
 
-### Center Frequency
+### 中心周波数
 
-The center frequency can be selected with `-f`:
+中心周波数は `-f`オプションにより下記の例により指定できる:
 
 ```
   [-f <frequency>] Receive frequency(s) (default: 433920000 Hz)
 ```
 
-The default frequency is 433.92 MHz and can be explicitly requested with `-f 433.92M`.
+デフォルトの周波数は 433.92 MHz であり、 明示的に `-f 433.92M`　の例により指定できる。
 
 You can give a frequency in Hz, like `-f 433920000` or use suffixes of `k`, `M`, or `G`,
 e.g. `-f 433920k`, or `-f 433.92M`.
 
-Other interesting frequencies are e.g. `-f 868M`, `-f 315M`, `-f 345M`, `-f 915M`.
+その他の興味深い周波数は右記の例の通り `-f 868M`, `-f 315M`, `-f 345M`, `-f 915M`
 If you fine tune the frequency to your sender device you should avoid hitting the sender frequency dead center.
 The resulting DC (direct current) signal is often attenuated by receivers and hard to make out when analysing samples.
 A small offset of 10 kHz to 50 kHz works best.
@@ -125,7 +125,7 @@ The `-f` option can be used multiple times to set up a list of frequency to hop.
 Use the `-H` option to set up the time to stay on each frequency or list on `-H` per `-f` to set a stay time for each frequency.
 (The last hop time given will be the default for all frequencies.)
 
-### PPM correction
+### PPM 校正
 
 A PPM error correction value can be given with `-p`:
 
@@ -135,21 +135,21 @@ A PPM error correction value can be given with `-p`:
 
 The PPM error correction is most commonly used to counter the drift in warmed up RTL-SDR devices.
 
-### Sample rate
+### サンプリングレート
 
-A sample rate value can be given with `-s`:
+サンプリングレートは、 `-s`　オプションで下記の例の通り指定可能である:
 
 ```
   [-s <sample rate>] Set sample rate (default: 250000 Hz)
 ```
 
-The default sample rate is 250 kHz and can be explicitly requested with `-s 250k`.
+デフォルトのサンプリングレートは 250 kHz であり、明示的に `-s 250k`　の例により指定できる。
 
 You can give a sample rate in Hz, like `-s 250000` or use suffixes of `k`, `M`, or `G`,
 e.g. `-f 250k`, or `-f 8M`.
 Note that the suffix is metric, the 1024000 Hz sample rate common with RTL-SDR has to be given as `-s 1024k`.
 
-## Decoders
+## デコーダ
 
 Decoders can be selected with the `-R`, `-G`, and `-X` option:
 

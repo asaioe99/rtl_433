@@ -1,5 +1,7 @@
 # rtl_433
 
+（※訳注：docs/OPERATION.md が参考になります）
+
 rtl_433は（名前に反して）汎用のRFプロトコルアナライザであり、主として433.92 MHz、868 MHz（SRD）、315 MHz、345 MHz、及び 915 MHz ISM バンドを目的としたものです。
 公式のソースコードは、https://github.com/merbanan/rtl_433/　のレポジトリにあります。
 資料及び関連のプロジェクトについては、 https://triq.org/ を参照してください。

@@ -45,7 +45,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-c <path>] 設定オプションをファイルから読み込む。
 		= Tuner オプション =
   [-d <RTL-SDR USB device index> | :<RTL-SDR USB device serial> | <SoapySDR device query> | rtl_tcp | help]
-  [-g <gain> | help] (default: auto)
+  [-g <gain> | ヘルプ] (デフォルト: auto)
   [-t <設定>] apply a list of keyword=value settings for SoapySDR devices
        e.g. -t "antenna=A,bandwidth=4.5M,rfnotch_ctrl=false"
   [-f <周波数>] 受信周波数 (default: 433920000 Hz)
@@ -64,12 +64,12 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-Y autolevel] Set minlevel automatically based on average estimated noise.
   [-Y スケルチ] Skip frames below estimated noise level to reduce cpu load.
   [-Y ampest | magest] Choose amplitude or magnitude level estimator.
-		= Analyze/Debug options =
+		= 解析/デバッグ オプション =
   [-a] 解析モード。 受信信号の詳細をテキストで表示する。
   [-A] パルスアナライザ。パルス解析を可能とし、デコードを試みる。
        Disable all decoders with -R 0 if you want analyzer output only.
   [-y <code>] Verify decoding of demodulated test data (e.g. "{25}fb2dd58") with enabled devices
-		= File I/O options =
+		= ファイル I/O オプション =
   [-S none | all | unknown | known] 信号の自動保存。 Creates one file per signal.
        Note: Saves raw I/Q samples (uint8 pcm, 2 channel). Preferred mode for generating test files.
   [-r <ファイル名> | ヘルプ] Read data from input file instead of a receiver
@@ -358,7 +358,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 
 
 		= 出力フォーマットオプション =
-  [-F kv|json|csv|mqtt|influx|syslog|null] Produce decoded output in given format.
+  [-F kv|json|csv|mqtt|influx|syslog|null] 復調済み出力を指定フォーマットで生成する。
 	Without this option the default is KV output. Use "-F null" to remove the default.
 	Append output to file with :<filename> (e.g. -F csv:log.csv), defaults to stdout.
 	Specify MQTT server with e.g. -F mqtt://localhost:1883
@@ -387,7 +387,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 	Use "time:off" to remove time meta data.
 	Use "time:usec" to add microseconds to date time meta data.
 	Use "time:tz" to output time with timezone offset.
-	Use "time:utc" to output time in UTC.
+	Use "time:utc" UTC で時間を出力する。
 		(this may also be accomplished by invocation with TZ environment variable set).
 		"usec" and "utc" can be combined with other options, eg. "time:unix:utc:usec".
 	Use "protocol" / "noprotocol" to output the decoder protocol number meta data.

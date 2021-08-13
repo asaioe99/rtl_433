@@ -48,10 +48,10 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-g <gain> | help] (default: auto)
   [-t <設定>] apply a list of keyword=value settings for SoapySDR devices
        e.g. -t "antenna=A,bandwidth=4.5M,rfnotch_ctrl=false"
-  [-f <周波数>] Receive frequency(s) (default: 433920000 Hz)
+  [-f <周波数>] 受信周波数 (default: 433920000 Hz)
   [-H <秒数>] Hop interval for polling of multiple frequencies (default: 600 seconds)
   [-p <ppm_error] Correct rtl-sdr tuner frequency offset error (default: 0)
-  [-s <sample rate>] Set sample rate (default: 250000 Hz)
+  [-s <sample rate>] サンプルレートの設定 (default: 250000 Hz)
 		= 復調オプション =
   [-R <デバイス> | ヘルプ] Enable only the specified device decoding protocol (このオプションは複数回追加して使用できます)
        Specify a negative number to disable a device decoding protocol (このオプションは複数回追加して使用できます)

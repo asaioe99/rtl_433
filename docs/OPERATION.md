@@ -33,12 +33,12 @@ RTL-SDR の場合、`-d` オプションを下記の通りに使用してくだ�
 ```
 
 If RTL-SDR support is compiled in ( `rtl_433 -V` の実行結果の最初の行を見よ) the default input will be the first available RTL-SDR device.
-This can also explicitly be selected with `rtl_433 -d 0`. Use e.g. `rtl_433 -d 1` to select the second device.
+これは `rtl_433 -d 0` により明示的に選択することも可能です。 Use e.g.二番目のデバイスを選択する場合、`rtl_433 -d 1` の例の通りにすること。
 
 If you have set a serial number on your device you can use that number prefixed with a colon to select a device,
 e.g. `rtl_433 -d :NESDRSMA`.
 
-The sample format read from RTL-SDR is always `CU8`.
+RTL-SDR から読み込む際のサンプルフォーマットは、常に `CU8` です。
 
 ### SoapySDR
 

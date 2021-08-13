@@ -42,7 +42,7 @@ The sample format read from RTL-SDR is always `CU8`.
 
 ### SoapySDR
 
-For SoapySDR use the `-d` option as:
+SoapySDR の場合、`-d` オプションを下記の通りに使用してください:
 
 ```
   [-d ""] Open default SoapySDR device
@@ -68,7 +68,7 @@ rtl_tcp の場合、`-d` オプションを下記の通りに使用してくだ�
     Specify host/port to connect to with e.g. -d rtl_tcp:127.0.0.1:1234
 ```
 
-The rtl_tcp input is always available. The default host is "localhost" and default port is "1234".
+rtl_tcp による入力は常に使用可能です。デフォルトのホスト名は "localhost" であり、 同じくデフォルトのポート番号は "1234" です。
 
 Use e.g. `rtl_433 -d rtl_tcp:192.168.2.1` or `rtl_433 -d rtl_tcp:192.168.2.1:2143` to select a specific source.
 
@@ -77,7 +77,7 @@ Use e.g. `rtl_433 -d rtl_tcp:192.168.2.1` or `rtl_433 -d rtl_tcp:192.168.2.1:214
 受信利得は `-g` オプションにより設定できる:
 
 ```
-  [-g <gain>] (default: auto)
+  [-g <利得>] (デフォルト: 自動)
     For RTL-SDR: gain in dB ("0" is auto).
     For SoapySDR: gain in dB for automatic distribution ("" is auto), or string of gain elements.
     E.g. "LNA=20,TIA=8,PGA=2" for LimeSDR.
@@ -86,7 +86,7 @@ Use e.g. `rtl_433 -d rtl_tcp:192.168.2.1` or `rtl_433 -d rtl_tcp:192.168.2.1:214
 
 デフォルトの入力利得は自動（AGC　が可能なら）となる。
 
-For RTL-SDR the gain is given in dB, where "0" selects automatic gain.
+RTL-SDR を使用の場合、利得は dB により指定し、 "0" を指定した場合、利得は自動的に決定されます。
 
 For SoapySDR a gain argument of `""` selects automatic gain,
 a gain value in dB can be used for automatic distribution to the gain stages,
@@ -182,7 +182,7 @@ Lastly the `-X` option can be used to add a custom flex decoder.
 This can be used with `-R 0` to disable all default decoders.
 E.g. `rtl_433 -R 0 -X "<spec>"` will only run your given custom decoder.
 
-## Flex Decoder
+## Flex デコーダ
 
 A flexible general purpose decoder can be added with the `-X` option:
 
@@ -475,7 +475,7 @@ Defaults are a base topic of `rtl_433/<hostname>/` continued
 - for `events` with `events`
 - for `states` with `states`
 
-### SYSLOG output
+### システムログ 出力
 
 Use `-F syslog` to add an output in SYSLOG format.
 
@@ -493,7 +493,7 @@ See also [RFC 5424 - The Syslog Protocol](https://tools.ietf.org/html/rfc5424#pa
 
 Without any `-F` option the default is KV output. Use `-F null` to remove that default.
 
-### Meta information
+### メタ情報
 
 ```
   [-M time[:<options>]|protocol|level|stats|bits]
@@ -522,7 +522,7 @@ Without any `-F` option the default is KV output. Use `-F null` to remove that d
 - Use `-K PATH` to add the full path name (from a loader) to every output line.
 - Use `-K <tag>` to add a fixed custom tag to every output line.
 
-### Data conversion
+### データ変換
 
 You can choose to normalize data by unit conversion with the `-C` option:
 
@@ -552,7 +552,7 @@ With `-C customary` units are converted to customary units:
 
 You can grab the decoded output from rtl_433 in various ways, then process and relay it somewhere.
 
-### Pipes
+### パイプ
 
 The simplest (but not very flexible or stable) way is to use pipes.
 E.g. capture the decode JSON messages and relay the to MQTT with

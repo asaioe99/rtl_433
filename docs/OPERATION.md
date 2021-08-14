@@ -184,13 +184,13 @@ E.g. `rtl_433 -R 0 -X "<spec>"` will only run your given custom decoder.
 
 ## Flex デコーダ
 
-A flexible general purpose decoder can be added with the `-X` option:
+`-X` オプションを指定することにより、汎用多用途目的デコーダが使用できる:
 
 ```
-  [-X <spec>] to add a flexible general purpose decoder.
-      <spec> is "key=value[,key=value...]"
+  [-X <spec>] 汎用多用途目的デコーダを使用する。
+      <spec> は "key=value[,key=value...]" となる。
 ```
-Most common keys are:
+主要な key は下記の通りである:
 - `name=<name>` (or: `n=<name>`)
 - `modulation=<modulation>` (or: `m=<modulation>`)
 - `short=<short>` (or: `s=<short>`)
@@ -203,7 +203,7 @@ Most common keys are:
 where:
 `<name>` can be any descriptive name tag you need in the output.
 
-`<modulation>` is one of:
+`<modulation>` は以下の内の１つである:
 - `OOK_MC_ZEROBIT` :  Manchester Code with fixed leading zero bit
 - `OOK_PCM` :         Pulse Code Modulation (RZ or NRZ)
 - `OOK_PPM` :         Pulse Position Modulation

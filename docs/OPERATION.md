@@ -205,16 +205,16 @@ where:
 
 `<modulation>` は以下の内の１つである:
 - `OOK_MC_ZEROBIT` :  Manchester Code with fixed leading zero bit
-- `OOK_PCM` :         Pulse Code Modulation (RZ or NRZ)
-- `OOK_PPM` :         Pulse Position Modulation
-- `OOK_PWM` :         Pulse Width Modulation
-- `OOK_DMC` :         Differential Manchester Code
+- `OOK_PCM` :         パルス符号変調 (RZ or NRZ)
+- `OOK_PPM` :         パルス位置変調
+- `OOK_PWM` :         パルス幅変調
+- `OOK_DMC` :         差分 Manchester 符号
 - `OOK_PIWM_RAW` :    Raw Pulse Interval and Width Modulation
 - `OOK_PIWM_DC` :     Differential Pulse Interval and Width Modulation
 - `OOK_MC_OSV1` :     Manchester Code for OSv1 devices
-- `FSK_PCM` :         FSK Pulse Code Modulation
-- `FSK_PWM` :         FSK Pulse Width Modulation
-- `FSK_MC_ZEROBIT` :  Manchester Code with fixed leading zero bit
+- `FSK_PCM` :         FSK パルス符号変調
+- `FSK_PWM` :         FSK パルス幅変調
+- `FSK_MC_ZEROBIT` :  Manchester 符号 with fixed leading zero bit
 
 `<short>`, `<long>`, `<sync>` are nominal modulation timings in us,
 `<reset>`, `<gap>`, `<tolerance>` are maximum modulation timings in us:
@@ -346,7 +346,7 @@ Use the `-y` option to test a known code line (bitbuffer):
 
 If you are developing or testing a decoder you can skip the device input or sample loading step and directly give a known code line (bitbuffer) to the enabled decoders.
 
-### File names
+### ファイル名
 
 Samples recorded using the `-S` option will automatically be given filenames with some meta-data.
 The signals will be stored individually in files named `g<NNN>_<FFF>M_<RRR>k.cu8` :
@@ -414,7 +414,7 @@ Append output to file with `:<filename>` (e.g. `-F kv:log.txt`), defaults to std
 Note: the `kv` output is not a machine-readable key-value format, use the JSON output for that.
 :::
 
-### JSON output
+### JSON 出力
 
 Use `-F json` to add an output in JSON format.
 
@@ -422,7 +422,7 @@ Universally machine-readable output.
 
 Append output to file with `:<filename>` (e.g. `-F json:log.json`), defaults to stdout.
 
-### CSV output
+### CSV 出力
 
 Use `-F csv` to add an output in CSV format.
 
@@ -432,7 +432,7 @@ Append output to file with `:<filename>` (e.g. `-F csv:log.csv`), defaults to st
 Note: the `csv` output is not recommended for post-processing, use the JSON output for a machine-readable format.
 :::
 
-### MQTT output
+### MQTT 出力
 
 Use `-F mqtt` to add an output in MQTT format.
 
@@ -462,7 +462,7 @@ Tokens are `type`, `model`, `subtype`, `channel`, `id`, and `protocol` for now.
 
 Note that for `protocol` to be available you first need to add it to the meta-data with `-M protocol`.
 
-Examples:
+例:
 
 - `sensors[/channel:0][/id]` : always have a channel add id if available, you can also use `sensors/[channel:0][/id]`
 - `sensors[/channel][/id]` : use channel and then id, each if available
@@ -489,7 +489,7 @@ E.g. a UDP text payload of
 ```
 See also [RFC 5424 - The Syslog Protocol](https://tools.ietf.org/html/rfc5424#page-8)
 
-### NULL output
+### NULL 出力
 
 Without any `-F` option the default is KV output. Use `-F null` to remove that default.
 

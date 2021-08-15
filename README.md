@@ -73,7 +73,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 		= ファイル I/O オプション =
   [-S none | all | unknown | known] 信号の自動保存。 Creates one file per signal.
        Note: Saves raw I/Q samples (uint8 pcm, 2 channel). Preferred mode for generating test files.
-  [-r <ファイル名> | ヘルプ] Read data from input file instead of a receiver
+  [-r <ファイル名> | ヘルプ] データを受信機ではなく入力ファイルから読み込む。
   [-w <ファイル名> | ヘルプ] データストリームを出力ファイルに保存する。 (a '-' dumps samples to stdout)
   [-W <ファイル名> | ヘルプ] データストリームを出力ファイルに保存し、既に存在するファイルに上書きする。
 		= データ出力オプション =

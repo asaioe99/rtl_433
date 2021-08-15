@@ -63,7 +63,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-Y minlevel=<dB level>] Manual minimum detection level used to determine pulses (-1.0 to -99.0).
   [-Y minsnr=<dB level>] Minimum SNR to determine pulses (1.0 to 99.0).
   [-Y autolevel] Set minlevel automatically based on average estimated noise.
-  [-Y スケルチ] Skip frames below estimated noise level to reduce cpu load.
+  [-Y squelch] Skip frames below estimated noise level to reduce cpu load.
   [-Y ampest | magest] Choose amplitude or magnitude level estimator.
 		= 解析/デバッグ オプション =
   [-a] 解析モード。 受信信号の詳細をテキストで表示する。

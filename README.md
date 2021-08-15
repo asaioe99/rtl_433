@@ -46,7 +46,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-c <path>] 設定オプションをファイルから読み込む。
 		= Tuner オプション =
   [-d <RTL-SDR USB device index> | :<RTL-SDR USB device serial> | <SoapySDR device query> | rtl_tcp | help]
-  [-g <gain> | ヘルプ] (デフォルト: auto)
+  [-g <利得> | help] (デフォルト: auto)
   [-t <設定>] apply a list of keyword=value settings for SoapySDR devices
        e.g. -t "antenna=A,bandwidth=4.5M,rfnotch_ctrl=false"
   [-f <周波数>] 受信周波数 (default: 433920000 Hz)
@@ -54,10 +54,10 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-p <ppm_error] Correct rtl-sdr tuner frequency offset error (default: 0)
   [-s <sample rate>] サンプルレートの設定 (default: 250000 Hz)
 		= 復調オプション =
-  [-R <デバイス> | ヘルプ] Enable only the specified device decoding protocol (このオプションは複数回追加して使用できます)
+  [-R <デバイス> | help] Enable only the specified device decoding protocol (このオプションは複数回追加して使用できます)
        Specify a negative number to disable a device decoding protocol (このオプションは複数回追加して使用できます)
   [-G] Enable blacklisted device decoding protocols, for testing only.
-  [-X <spec> | help] Add a general purpose decoder (prepend -R 0 to disable all decoders)
+  [-X <spec> | help] 汎用目的デコーダを追加する (prepend -R 0 to disable all decoders)
   [-Y auto | classic | minmax] FSK パルス検出モード
   [-Y level=<dB level>] Manual detection level used to determine pulses (-1.0 to -30.0) (0=auto).
   [-Y minlevel=<dB level>] Manual minimum detection level used to determine pulses (-1.0 to -99.0).

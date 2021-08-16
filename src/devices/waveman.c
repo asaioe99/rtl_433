@@ -14,7 +14,7 @@ Example of a generic remote using PT2260/PT2262 SC2260/SC2262 EV1527 protocol.
 fixed bit width of 1445 us
 short pulse is 357 us (1/4th)
 long pulse is 1064 (3/4th)
-a packet is 15 pulses, the last pulse (short) is sync pulse
+a packet is 25 pulses, the last pulse (short) is sync pulse
 packet gap is 11.5 ms
 
 note that this decoder uses:

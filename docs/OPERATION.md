@@ -140,7 +140,7 @@ The PPM error correction is most commonly used to counter the drift in warmed up
 サンプリングレートは、 `-s`　オプションで下記の例の通り指定可能である:
 
 ```
-  [-s <sample rate>] Set sample rate (default: 250000 Hz)
+  [-s <サンプリングレート>] Set sample rate (default: 250000 Hz)
 ```
 
 デフォルトのサンプリングレートは 250 kHz であり、明示的に `-s 250k`　の例により指定できる。

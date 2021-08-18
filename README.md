@@ -78,16 +78,16 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-W <ファイル名> | ヘルプ] データストリームを出力ファイルに保存し、既に存在するファイルに上書きする。
 		= データ出力オプション =
   [-F kv | json | csv | mqtt | influx | syslog | null | help] Produce decoded output in given format.
-       Append output to file with :<filename> (e.g. -F csv:log.csv), defaults to stdout.
-       Specify host/port for syslog with e.g. -F syslog:127.0.0.1:1514
-  [-M time[:<options>] | protocol | level | noise[:secs] | stats | bits | help] Add various meta data to each output.
+       Append output to file with :<ファイル名> (例： -F csv:log.csv), defaults to stdout.
+       Specify host/port for syslog with 例： -F syslog:127.0.0.1:1514
+  [-M time[:<オプション>] | protocol | level | noise[:secs] | stats | bits | help] Add various meta data to each output.
   [-K FILE | PATH | <tag> | <key>=<tag>] Add an expanded token or fixed tag to every output line.
   [-C native | si | customary] Convert units in decoded output.
-  [-n <value>] Specify number of samples to take (each sample is an I/Q pair)
-  [-T <秒数>] Specify number of seconds to run, also 12:34 or 1h23m45s
+  [-n <値>] Specify number of samples to take (each sample is an I/Q pair)
+  [-T <秒数>] 実行秒数を指定する。形式は 12:34 又は 1h23m45s の例による。
   [-E hop | quit] Hop/Quit after outputting successful event(s)
   [-h] この使用方法を表示し、終了する。
-       Use -d, -g, -R, -X, -F, -M, -r, -w, or -W without argument for more help
+       -d, -g, -R, -X, -F, -M, -r, -w, 又は -W を引数なしで使用すると、詳細なヘルプを表示します。
 
 
 
@@ -277,12 +277,12 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
     [189]  Somfy io-homecontrol
     [190]  Ambient Weather (Fine Offset) WH31L Lightning-Strike sensor
 
-* Disabled by default, use -R n or -G
+* デフォルトでは無効である。使用の際は -R n 又は -G とすること。
 
 
 		= 入力デバイスの選択 =
 	RTL-SDR のデバイスドライバは利用可能です。
-  [-d <RTL-SDR USB デバイスインデックス>] (default: 0)
+  [-d <RTL-SDR USB デバイスインデックス>] (デフォルト: 0)
   [-d :<RTL-SDR USB デバイスシリアル (can be set with rtl_eeprom -s)>]
 	To set gain for RTL-SDR use -g <gain> to set an overall gain in dB.
 	SoapySDR device driver is available.
@@ -321,9 +321,9 @@ where:
 	OOK_PCM :         パルス符号変調 (RZ or NRZ)
 	OOK_PPM :         パルス位置変調
 	OOK_PWM :         パルス幅変調
-	OOK_DMC :         Differential マンチェスター符号
+	OOK_DMC :         差分マンチェスター符号
 	OOK_PIWM_RAW :    Raw Pulse Interval and Width Modulation
-	OOK_PIWM_DC :     Differential Pulse Interval and Width Modulation
+	OOK_PIWM_DC :     差分パルス繰り返し変調及びパルス幅変調
 	OOK_MC_OSV1 :     マンチェスター符号 for OSv1 devices
 	FSK_PCM :         FSK パルス符号変調
 	FSK_PWM :         FSK パルス幅変調
@@ -345,7 +345,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 	rows=<n> : only match if there are <n> rows
 	repeats=<n> : only match if some row is repeated <n> times
 		use opt>=n to match at least <n> and opt<=n to match at most <n>
-	invert : invert all bits
+	invert : 全ての bit を反転する
 	reflect : reflect each byte (MSB first to MSB last)
 	match=<bits> : only match if the <bits> are found
 	preamble=<bits> : match and align at the <bits> preamble
@@ -354,7 +354,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 
 	countonly : suppress detailed row output
 
-E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repeats>=3"
+例： -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repeats>=3"
 
 
 
@@ -370,7 +370,7 @@ E.g. -X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repea
 	  states: posts JSON state data
 	  devices: posts device and sensor info in nested topics
 	The topic string will expand keys like [/model]
-	E.g. -F "mqtt://localhost:1883,user=USERNAME,pass=PASSWORD,retain=0,devices=rtl_433[/id]"
+	例： -F "mqtt://localhost:1883,user=USERNAME,pass=PASSWORD,retain=0,devices=rtl_433[/id]"
 	With MQTT each rtl_433 instance needs a distinct driver selection. The MQTT Client-ID is computed from the driver string.
 	If you use multiple RTL-SDR, perhaps set a serial and select by that (helps not to get the wrong antenna).
 	Specify InfluxDB 2.0 server with e.g. -F "influx://localhost:9999/api/v2/write?org=<org>&bucket=<bucket>,token=<authtoken>"

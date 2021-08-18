@@ -23,9 +23,9 @@ rtl_433は、portable C(C99 スタンダード)で記述されており、Linux 
 
 Debian (sid) 又は Ubuntu (19.10+) 環境下では、 `apt-get install rtl-433` for other distros check https://repology.org/project/rtl-433/versions
 
-On FreeBSD, `pkg install rtl-433`.
+FreeBSD では、 `pkg install rtl-433`。
 
-On MacOS, `brew install rtl_433`.
+On MacOS では、 `brew install rtl_433`。
 
 rtl_433のDockerイメージは以下で有効です。 [on the github page of hertzg](https://github.com/hertzg/rtl_433_docker).
 
@@ -52,7 +52,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-f <周波数>] 受信周波数 (デフォルト: 433920000 Hz)
   [-H <秒数>] 複数の周波数を巡回するためのホッピング間隔 (デフォルト: 600 秒)
   [-p <ppm_error] rtl-sdr のチューナーに対する周波数オフセットエラーの校正値 (デフォルト: 0)
-  [-s <sample rate>] サンプルレートの設定 (default: 250000 Hz)
+  [-s <sample rate>] サンプルレートの設定 (デフォルト: 250000 Hz)
 		= 復調オプション =
   [-R <デバイス> | help] 特定のデバイスに対する復調プロトコルを有効にする (このオプションは複数回追加して使用できます)
        Specify a negative number to disable a device decoding protocol (このオプションは複数回追加して使用できます)
@@ -284,11 +284,11 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 	RTL-SDR のデバイスドライバは利用可能です。
   [-d <RTL-SDR USB デバイスインデックス>] (デフォルト: 0)
   [-d :<RTL-SDR USB デバイスシリアル (can be set with rtl_eeprom -s)>]
-	To set gain for RTL-SDR use -g <gain> to set an overall gain in dB.
-	SoapySDR device driver is available.
+	To set gain for RTL-SDR use -g <利得> to set an overall gain in dB.
+	SoapySDR デバイスドライバで使用可能である。
   [-d ""] デフォルトの SoapySDR デバイスを開く。
   [-d driver=rtlsdr] Open e.g. specific SoapySDR device
-	To set gain for SoapySDR use -g ELEM=val,ELEM=val,... e.g. -g LNA=20,TIA=8,PGA=2 (for LimeSDR).
+	To set gain for SoapySDR use -g ELEM=val,ELEM=val,... e.g. -g LNA=20,TIA=8,PGA=2 (LimeSDR 用).
   [-d rtl_tcp[:[//]host[:port]] (default: localhost:1234)
 	Specify host/port to connect to with e.g. -d rtl_tcp:127.0.0.1:1234
 
@@ -296,7 +296,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 		= 利得オプション =
   [-g <利得>] (デフォルト：自動)
 	RTL-SDR: 利得を dB で指定 ("0" の場合、自動となる)。
-	SoapySDR: 利得を dB で自動分配する ("" とすることで自動となる)か、 又は利得の諸要素（訳注：LNA、VGA、AMP等、SDRデバイスによる）を文字列で指定する。
+	SoapySDR: 利得を dB で自動分配する ("" とすることで自動となる)か、 利得の各要素（訳注：LNA、VGA、AMP等、SDRデバイスによる）を文字列で指定する。
 	例： "LNA=20,TIA=8,PGA=2" for LimeSDR.
 
 
@@ -380,7 +380,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 
 
 		= メタ情報オプション =
-  [-M time[:<options>]|protocol|level|noise[:<secs>]|stats|bits] Add various metadata to every output line.
+  [-M time[:<オプション>]|protocol|level|noise[:<secs>]|stats|bits] Add various metadata to every output line.
 	Use "time" to add current date and time meta data (preset for live inputs).
 	Use "time:rel" to add sample position meta data (preset for read-file and stdin).
 	Use "time:unix" to show the seconds since unix epoch as time meta data.
@@ -449,7 +449,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 | `rtl_433 -C si` | Default receive mode, also convert units to metric system.
 | `rtl_433 -f 868M -s 1024k` | 868 MHz を、サンプリングレート 1024k で受信します。
 | `rtl_433 -M hires -M level` | Report microsecond accurate timestamps and add reception levels (depending on gain).
-| `rtl_433 -R 1 -R 8 -R 43` | Enable only specific decoders for desired devices.
+| `rtl_433 -R 1 -R 8 -R 43` | 指定したデバイスに対してのみ復調を有効にする。
 | `rtl_433 -A` | パルス解析を有効にします。パルスのタイミング、空白、期間を要約し表示します。Can be used with `-R 0` to disable decoders.
 | `rtl_433 -S all -T 120` | 検出したすべての信号を次の様式 (`g###_###M_###k.cu8`)で保存し、2分間動作します。
 | `rtl_433 -K FILE -r file_name` | 受信機ではなく、入力ファイルからデータを読み込む。 Tag output with filenames.

@@ -419,7 +419,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 	forced overrides: am:s16:path/filename.ext
 
 	Reading from pipes also support format options.
-	E.g reading complex 32-bit float: CU32:-
+	例： reading complex 32-bit float: CU32:-
 
 
 		= 書き込みファイルオプション =
@@ -435,7 +435,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 	Parameters must be separated by non-alphanumeric chars and are case-insensitive.
 	Overrides can be prefixed, separated by colon (':')
 
-	E.g. default detection by extension: path/filename.am.s16
+	例： default detection by extension: path/filename.am.s16
 	forced overrides: am:s16:path/filename.ext
 
 ```

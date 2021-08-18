@@ -286,7 +286,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-d :<RTL-SDR USB デバイスシリアル (can be set with rtl_eeprom -s)>]
 	To set gain for RTL-SDR use -g <gain> to set an overall gain in dB.
 	SoapySDR device driver is available.
-  [-d ""] Open default SoapySDR device
+  [-d ""] デフォルトの SoapySDR デバイスを開く。
   [-d driver=rtlsdr] Open e.g. specific SoapySDR device
 	To set gain for SoapySDR use -g ELEM=val,ELEM=val,... e.g. -g LNA=20,TIA=8,PGA=2 (for LimeSDR).
   [-d rtl_tcp[:[//]host[:port]] (default: localhost:1234)
@@ -300,7 +300,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 	例： "LNA=20,TIA=8,PGA=2" for LimeSDR.
 
 
-		= Flex decoder spec =
+		= Flex デコーダ spec =
 -X <spec> オプションにより、汎用フレックスデコーダを使用可能にできる。
 （訳注：パルス変調に関する各種定義は、https://www.keyence.co.jp/ss/products/recorder/lab/pulse/base.jspが詳しい）
 
@@ -360,10 +360,10 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 
 		= 出力フォーマットオプション =
   [-F kv|json|csv|mqtt|influx|syslog|null] 復調済み出力を指定フォーマットで生成する。
-	Without this option the default is KV output. Use "-F null" to remove the default.
-	Append output to file with :<filename> (e.g. -F csv:log.csv), defaults to stdout.
-	Specify MQTT server with e.g. -F mqtt://localhost:1883
-	Add MQTT options with e.g. -F "mqtt://host:1883,opt=arg"
+	このオプションを指定しなかった場合、デフォルトではKVが出力形式となる。 Use "-F null" to remove the default.
+	Append output to file with :<ファイル名> (例： -F csv:log.csv), defaults to stdout.
+	Specify MQTT server with 例： -F mqtt://localhost:1883
+	Add MQTT options with 例： -F "mqtt://host:1883,opt=arg"
 	MQTT options are: user=foo, pass=bar, retain[=0|1], <format>[=topic]
 	Supported MQTT formats: (default is all)
 	  events: posts JSON event data
@@ -454,7 +454,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 | `rtl_433 -S all -T 120` | 検出したすべての信号を次の様式 (`g###_###M_###k.cu8`)で保存し、2分間動作します。
 | `rtl_433 -K FILE -r file_name` | 受信機ではなく、入力ファイルからデータを読み込む。 Tag output with filenames.
 | `rtl_433 -F json -M utc \| mosquitto_pub -t home/rtl_433 -l` | Will pipe the output to network as JSON formatted MQTT messages. A test MQTT client can be found in `examples/mqtt_rtl_433_test_client.py`.
-| `rtl_433 -f 433.53M -f 434.02M -H 15` | Will poll two frequencies with 15 seconds hop interval.
+| `rtl_433 -f 433.53M -f 434.02M -H 15` | 15秒のホッピング間隔で、2つの周波数をポーリングする。
 
 ## Googleグループ
 

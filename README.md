@@ -16,8 +16,8 @@ Realtek RTL2832 based DVB dongles (using RTL-SDR) 及び LimeSDR ([LimeSDR USB](
 
 rtl_433は、portable C(C99 スタンダード)で記述されており、Linux (also embedded)、MacOS、そしてWindows systemsでコンパイル可能です。
 過去のコンパイラやツールチェーンのサポートも重要な目標です。
-Low resource consumption and very few dependencies allow rtl_433 to run on embedded hardware like (repurposed) routers.
-32-bit i686 及び 64-bit x86-64 、同様に (embedded) ARM、つまりRaspberry Pi や PlutoSDR に使用されているアーキテクチャはサポートの対象となっています。
+低リソース消費及び低依存度により、rtl_433は（転用）ルーター等の組み込み機器で動作可能です。
+32-bit i686 及び 64-bit x86-64 、同様に (組み込み) ARM、つまりRaspberry Pi や PlutoSDR に使用されているアーキテクチャはサポートの対象となっています。
 
 詳細は右記参照のこと [BUILDING.md](docs/BUILDING.md)
 
@@ -45,16 +45,16 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
        -v : verbose, -vv : verbose decoders, -vvv : debug decoders, -vvvv : trace decoding).
   [-c <path>] 設定オプションをファイルから読み込む。
 		= Tuner オプション =
-  [-d <RTL-SDR USB device index> | :<RTL-SDR USB device serial> | <SoapySDR device query> | rtl_tcp | help]
+  [-d <RTL-SDR USB device index> | :<RTL-SDR USB デバイスシリアル> | <SoapySDR デバイスクエリ> | rtl_tcp | help]
   [-g <利得> | help] (デフォルト: auto)
-  [-t <設定>] apply a list of keyword=value settings for SoapySDR devices
-       e.g. -t "antenna=A,bandwidth=4.5M,rfnotch_ctrl=false"
-  [-f <周波数>] 受信周波数 (default: 433920000 Hz)
-  [-H <秒数>] Hop interval for polling of multiple frequencies (default: 600 seconds)
-  [-p <ppm_error] Correct rtl-sdr tuner frequency offset error (default: 0)
+  [-t <設定>] SoapySDR デバイスの keyword=value 設定リストを適用する。
+       例： -t "antenna=A,bandwidth=4.5M,rfnotch_ctrl=false"
+  [-f <周波数>] 受信周波数 (デフォルト: 433920000 Hz)
+  [-H <秒数>] 複数の周波数を巡回するためのホッピング間隔 (デフォルト: 600 秒)
+  [-p <ppm_error] rtl-sdr のチューナーに対する周波数オフセットエラーの校正値 (デフォルト: 0)
   [-s <sample rate>] サンプルレートの設定 (default: 250000 Hz)
 		= 復調オプション =
-  [-R <デバイス> | help] Enable only the specified device decoding protocol (このオプションは複数回追加して使用できます)
+  [-R <デバイス> | help] 特定のデバイスに対する復調プロトコルを有効にする (このオプションは複数回追加して使用できます)
        Specify a negative number to disable a device decoding protocol (このオプションは複数回追加して使用できます)
   [-G] Enable blacklisted device decoding protocols, for testing only.
   [-X <spec> | help] 汎用目的デコーダを追加する (prepend -R 0 to disable all decoders)

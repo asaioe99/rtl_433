@@ -295,9 +295,9 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 
 		= 利得オプション =
   [-g <利得>] (デフォルト：自動)
-	For RTL-SDR: gain in dB ("0" is auto).
-	For SoapySDR: gain in dB for automatic distribution ("" is auto), or string of gain elements.
-	E.g. "LNA=20,TIA=8,PGA=2" for LimeSDR.
+	RTL-SDR: 利得を dB で指定 ("0" の場合、自動となる)。
+	SoapySDR: 利得を dB で自動分配する ("" とすることで自動となる)か、 又は利得の諸要素（訳注：LNA、VGA、AMP等、SDRデバイスによる）を文字列で指定する。
+	例： "LNA=20,TIA=8,PGA=2" for LimeSDR.
 
 
 		= Flex decoder spec =

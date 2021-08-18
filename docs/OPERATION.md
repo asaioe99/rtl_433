@@ -260,9 +260,9 @@ E.g. `-X "n=doorbell,m=OOK_PWM,s=400,l=800,r=7000,g=1000,match={24}0xa9878c,repe
 
 See the [`conf`](https://github.com/merbanan/rtl_433/tree/master/conf) folder for some examples of flex specs.
 
-## Analysis
+## 解析
 
-Signal data can be analysed with `-A`, `-a`, sample data can be dumped with `-S`:
+信号データは `-A`, `-a`, オプションで解析可能であり、サンプルデータは `-S` でダンプ可能である:
 
 ```
   [-a] Analyze mode. Print a textual description of the signal.
@@ -272,8 +272,8 @@ Signal data can be analysed with `-A`, `-a`, sample data can be dumped with `-S`
        Note: Saves raw I/Q samples (uint8 pcm, 2 channel). Preferred mode for generating test files.
 ```
 
-The `-a` option enables the (old) pulse decoder to print a textual description of the signal.
-The output might not be too useful, best to use the newer `-A` option.
+`-a` オプションはパルスデコーダ（旧）であり、信号の詳細をテキストで表示する。
+出力は `-A` オプションと比較して有用でも優れてもいない.
 
 The `-A` option enables the (new) pulse analyzer.
 Each received transmission will be displayed in a statistical overview.

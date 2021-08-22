@@ -60,8 +60,8 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-X <spec> | help] 汎用目的デコーダを追加する (prepend -R 0 to disable all decoders)
   [-Y auto | classic | minmax] FSK パルス検出モード
   [-Y level=<dB level>] Manual detection level used to determine pulses (-1.0 to -30.0) (0=auto).
-  [-Y minlevel=<dB level>] Manual minimum detection level used to determine pulses (-1.0 to -99.0).
-  [-Y minsnr=<dB level>] Minimum SNR to determine pulses (1.0 to 99.0).
+  [-Y minlevel=<dB level>] 手動パルス測定時の最小 dB レベル (-1.0 to -99.0)。
+  [-Y minsnr=<dB level>] 手動パルス測定時の最小 S/N 比 (1.0 to 99.0)。
   [-Y autolevel] Set minlevel automatically based on average estimated noise.
   [-Y squelch] Skip frames below estimated noise level to reduce cpu load.
   [-Y ampest | magest] Choose amplitude or magnitude level estimator.
@@ -306,8 +306,8 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 
 <spec> is "key=value[,key=value...]"
 共通の keys は以下の通り:
-	name=<name> (or: n=<name>)
-	modulation=<modulation> (or: m=<modulation>)
+	name=<名前> (又は: n=<名前>)
+	modulation=<変調方式> (or: m=<変調方式>)
 	short=<short> (or: s=<short>)
 	long=<long> (or: l=<long>)
 	sync=<sync> (or: y=<sync>)
@@ -415,7 +415,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 	Parameters must be separated by non-alphanumeric chars and are case-insensitive.
 	Overrides can be prefixed, separated by colon (':')
 
-	E.g. default detection by extension: path/filename.am.s16
+	例： default detection by extension: path/filename.am.s16
 	forced overrides: am:s16:path/filename.ext
 
 	Reading from pipes also support format options.

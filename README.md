@@ -56,7 +56,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 		= 復調オプション =
   [-R <デバイス> | help] 特定のデバイスに対する復調プロトコルを有効にする (このオプションは複数回追加して使用できます)
        Specify a negative number to disable a device decoding protocol (このオプションは複数回追加して使用できます)
-  [-G] Enable blacklisted device decoding protocols, for testing only.
+  [-G] ブラックリストのに登録されているデバイスプロトコルのデコードを有効にする（試験用限定）。
   [-X <spec> | help] 汎用目的デコーダを追加する (prepend -R 0 to disable all decoders)
   [-Y auto | classic | minmax] FSK パルス検出モード
   [-Y level=<dB level>] Manual detection level used to determine pulses (-1.0 to -30.0) (0=auto).
@@ -332,10 +332,10 @@ where:
 <reset>, <gap>, <tolerance> are maximum modulation timings in us:
 PCM     short: 公称パルス幅 [us]
          long: 公称ビット期間幅 [us]
-PPM     short: Nominal width of '0' gap [us]
-         long: Nominal width of '1' gap [us]
-PWM     short: Nominal width of '1' pulse [us]
-         long: Nominal width of '0' pulse [us]
+PPM     short: 公称 '0' 空白幅 [us]　（訳注：この辺りの定数の定義が分からない方は、「初級　電磁波盗聴」を参照のこと）
+         long: 公称 '1' 空白幅 [us]
+PWM     short: 公称 '1' パルス幅 [us]
+         long: 公称  '0' パルス幅 [us]
          sync: Nominal width of sync pulse [us] (optional)
 common    gap: 次のビット列が始まるまでの最大空白時間 [us]
         reset: Maximum gap size before End Of Message [us]

@@ -59,7 +59,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-G] ブラックリストのに登録されているデバイスプロトコルのデコードを有効にする（試験用限定）。
   [-X <spec> | help] 汎用目的デコーダを追加する (prepend -R 0 to disable all decoders)
   [-Y auto | classic | minmax] FSK パルス検出モード
-  [-Y level=<dB level>] Manual detection level used to determine pulses (-1.0 to -30.0) (0=auto).
+  [-Y level=<dB level>] 手動パルス測定時の dB レベル (-1.0 to -30.0) (0=auto)。
   [-Y minlevel=<dB level>] 手動パルス測定時の最小 dB レベル (-1.0 to -99.0)。
   [-Y minsnr=<dB level>] 手動パルス測定時の最小 S/N 比 (1.0 to 99.0)。
   [-Y autolevel] Set minlevel automatically based on average estimated noise.
@@ -71,8 +71,8 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
        パルスアナライザを出力のみにしたい場合、-R 0 で全てのデコーダを無効にできる。
   [-y <code>] Verify decoding of demodulated test data (e.g. "{25}fb2dd58") with enabled devices
 		= ファイル I/O オプション =
-  [-S none | all | unknown | known] 信号の自動保存。 Creates one file per signal.
-       Note: Saves raw I/Q samples (uint8 pcm, 2 channel). Preferred mode for generating test files.
+  [-S none | all | unknown | known] 信号の自動保存。 信号毎にファイルを作成する。
+       メモ: raw I/Q サンプルを保存します (uint8 pcm, 2 channel)。 Preferred mode for generating test files.
   [-r <ファイル名> | ヘルプ] データを受信機ではなく入力ファイルから読み込む。
   [-w <ファイル名> | ヘルプ] データストリームを出力ファイルに保存する。 (a '-' dumps samples to stdout)
   [-W <ファイル名> | ヘルプ] データストリームを出力ファイルに保存し、既に存在するファイルに上書きする。
@@ -289,7 +289,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-d ""] デフォルトの SoapySDR デバイスを開く。
   [-d driver=rtlsdr] Open e.g. specific SoapySDR device
 	To set gain for SoapySDR use -g ELEM=val,ELEM=val,... e.g. -g LNA=20,TIA=8,PGA=2 (LimeSDR 用).
-  [-d rtl_tcp[:[//]host[:port]] (default: localhost:1234)
+  [-d rtl_tcp[:[//]host[:port]] (デフォルト: localhost:1234)
 	Specify host/port to connect to with e.g. -d rtl_tcp:127.0.0.1:1234
 
 
@@ -317,7 +317,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 where:
 <name> can be any descriptive name tag you need in the output
 <変調方式> は下記のいずれかである:
-	OOK_MC_ZEROBIT :  マンチェスター符号 with fixed leading zero bit
+	OOK_MC_ZEROBIT :  先頭が固定長 0bit のマンチェスター符号
 	OOK_PCM :         パルス符号変調 (RZ or NRZ)
 	OOK_PPM :         パルス位置変調
 	OOK_PWM :         パルス幅変調
@@ -327,15 +327,15 @@ where:
 	OOK_MC_OSV1 :     マンチェスター符号 for OSv1 devices
 	FSK_PCM :         FSK パルス符号変調
 	FSK_PWM :         FSK パルス幅変調
-	FSK_MC_ZEROBIT :  Manchester Code with fixed leading zero bit
-<short>, <long>, <sync> are nominal modulation timings in us,
+	FSK_MC_ZEROBIT :  先頭が固定長 0bit のマンチェスター符号
+<short>, <long>, <sync> は、us 単位の基準変調間隔
 <reset>, <gap>, <tolerance> are maximum modulation timings in us:
-PCM     short: 公称パルス幅 [us]
-         long: 公称ビット期間幅 [us]
-PPM     short: 公称 '0' 空白幅 [us]　（訳注：この辺りの定数の定義が分からない方は、「初級　電磁波盗聴」を参照のこと）
-         long: 公称 '1' 空白幅 [us]
-PWM     short: 公称 '1' パルス幅 [us]
-         long: 公称 '0' パルス幅 [us]
+PCM     short: 基準パルス幅 [us]
+         long: 基準ビット期間幅 [us]
+PPM     short: 基準 '0' 空白幅 [us]　（訳注：この辺りの定数の定義が分からない方は、「初級　電磁波盗聴」を参照のこと）
+         long: 基準 '1' 空白幅 [us]
+PWM     short: 基準 '1' パルス幅 [us]
+         long: 基準 '0' パルス幅 [us]
          sync: Nominal width of sync pulse [us] (optional)
 common    gap: 次のビット列が始まるまでの最大空白時間 [us]
         reset: Maximum gap size before End Of Message [us]
@@ -365,7 +365,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 	Specify MQTT server with 例： -F mqtt://localhost:1883
 	Add MQTT options with 例： -F "mqtt://host:1883,opt=arg"
 	MQTT options are: user=foo, pass=bar, retain[=0|1], <format>[=topic]
-	Supported MQTT formats: (default is all)
+	Supported MQTT フォーマット: (default is all)
 	  events: posts JSON event data
 	  states: posts JSON state data
 	  devices: posts device and sensor info in nested topics
@@ -380,15 +380,15 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 
 
 		= メタ情報オプション =
-  [-M time[:<オプション>]|protocol|level|noise[:<secs>]|stats|bits] Add various metadata to every output line.
+  [-M time[:<オプション>]|protocol|level|noise[:<secs>]|stats|bits] 様々なメタデータを出力行毎に追加する。
 	Use "time" to add current date and time meta data (preset for live inputs).
 	Use "time:rel" to add sample position meta data (preset for read-file and stdin).
-	Use "time:unix" to show the seconds since unix epoch as time meta data.
-	Use "time:iso" to show the time with ISO-8601 format (YYYY-MM-DD"T"hh:mm:ss).
-	Use "time:off" to remove time meta data.
-	Use "time:usec" to add microseconds to date time meta data.
-	Use "time:tz" to output time with timezone offset.
-	Use "time:utc" UTC で時間を出力する。
+	Use "time:unix" を使用することで、 秒単位の unix エポック時間を時刻メタデータとして表示する。
+	"time:iso" を使用することで、時刻を ISO-8601 フォーマット (YYYY-MM-DD"T"hh:mm:ss)で表示する。
+	"time:off" を使用することで時刻情報を削除できる。
+	"time:usec" を使用することで、時刻メタデータにマイクロ秒単位を追加する.
+	"time:tz" を使用することで、標準時にオフセット込みの時間を出力する。（訳注：オフセット「GMT+9」の「9」）
+	"time:utc" を使用することで、UTC で時間を出力する。
 		(this may also be accomplished by invocation with TZ environment variable set).
 		"usec" and "utc" can be combined with other options, eg. "time:unix:utc:usec".
 	Use "protocol" / "noprotocol" to output the decoder protocol number meta data.
@@ -448,7 +448,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 | `rtl_433` | デフォルトの受信モードであり、最初に見つかったデバイスを使用して 433.92 MHz を、サンプリングレート 250k で受信します。
 | `rtl_433 -C si` | Default receive mode, also convert units to metric system.
 | `rtl_433 -f 868M -s 1024k` | 868 MHz を、サンプリングレート 1024k で受信します。
-| `rtl_433 -M hires -M level` | Report microsecond accurate timestamps and add reception levels (depending on gain).
+| `rtl_433 -M hires -M level` | Report microsecond accurate timestamps and add reception levels (利得に依存).
 | `rtl_433 -R 1 -R 8 -R 43` | 指定したデバイスに対してのみ復調を有効にする。
 | `rtl_433 -A` | パルス解析を有効にします。パルスのタイミング、空白、期間を要約し表示します。Can be used with `-R 0` to disable decoders.
 | `rtl_433 -S all -T 120` | 検出したすべての信号を次の様式 (`g###_###M_###k.cu8`)で保存し、2分間動作します。

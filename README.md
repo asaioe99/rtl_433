@@ -68,7 +68,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 		= 解析/デバッグ オプション =
   [-a] 解析モード。 受信信号の詳細をテキストで表示する。
   [-A] パルスアナライザ。パルス解析を可能とし、デコードを試みる。
-       Disable all decoders with -R 0 if you want analyzer output only.
+       パルスアナライザを出力のみにしたい場合、-R 0 で全てのデコーダを無効にできる。
   [-y <code>] Verify decoding of demodulated test data (e.g. "{25}fb2dd58") with enabled devices
 		= ファイル I/O オプション =
   [-S none | all | unknown | known] 信号の自動保存。 Creates one file per signal.
@@ -83,7 +83,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-M time[:<オプション>] | protocol | level | noise[:secs] | stats | bits | help] Add various meta data to each output.
   [-K FILE | PATH | <tag> | <key>=<tag>] Add an expanded token or fixed tag to every output line.
   [-C native | si | customary] Convert units in decoded output.
-  [-n <値>] Specify number of samples to take (each sample is an I/Q pair)
+  [-n <値>] 取得するサンプル数の指定 (各サンプルは I/Q のペア)
   [-T <秒数>] 実行秒数を指定する。形式は 12:34 又は 1h23m45s の例による。
   [-E hop | quit] Hop/Quit after outputting successful event(s)
   [-h] この使用方法を表示し、終了する。
@@ -335,7 +335,7 @@ PCM     short: 公称パルス幅 [us]
 PPM     short: 公称 '0' 空白幅 [us]　（訳注：この辺りの定数の定義が分からない方は、「初級　電磁波盗聴」を参照のこと）
          long: 公称 '1' 空白幅 [us]
 PWM     short: 公称 '1' パルス幅 [us]
-         long: 公称  '0' パルス幅 [us]
+         long: 公称 '0' パルス幅 [us]
          sync: Nominal width of sync pulse [us] (optional)
 common    gap: 次のビット列が始まるまでの最大空白時間 [us]
         reset: Maximum gap size before End Of Message [us]
@@ -393,10 +393,10 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 		"usec" and "utc" can be combined with other options, eg. "time:unix:utc:usec".
 	Use "protocol" / "noprotocol" to output the decoder protocol number meta data.
 	Use "level" to add Modulation, Frequency, RSSI, SNR, and Noise meta data.
-	Use "noise[:secs]" to report estimated noise level at intervals (default: 10 seconds).
-	Use "stats[:[<level>][:<interval>]]" to report statistics (default: 600 seconds).
+	Use "noise[:secs]" to report estimated noise level at intervals (デフォルト: 10 秒).
+	Use "stats[:[<level>][:<interval>]]" to report statistics (デフォルト: 600 秒).
 	  level 0: no report, 1: report successful devices, 2: report active devices, 3: report all
-	Use "bits" to add bit representation to code outputs (for debug).
+	Use "bits" to add bit representation to code outputs (デバッグ用).
 
 
 		= 読み込みファイルオプション =

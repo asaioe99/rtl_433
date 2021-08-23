@@ -308,12 +308,12 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 共通の keys は以下の通り:
 	name=<名前> (又は: n=<名前>)
 	modulation=<変調方式> (or: m=<変調方式>)
-	short=<short> (or: s=<short>)
-	long=<long> (or: l=<long>)
-	sync=<sync> (or: y=<sync>)
-	reset=<reset> (or: r=<reset>)
-	gap=<gap> (or: g=<gap>)
-	tolerance=<tolerance> (or: t=<tolerance>)
+	short=<short> (又は: s=<short>)
+	long=<long> (又は: l=<long>)
+	sync=<sync> (又は: y=<sync>)
+	reset=<reset> (又は: r=<reset>)
+	gap=<gap> (又は: g=<gap>)
+	tolerance=<tolerance> (又は: t=<tolerance>)
 where:
 <name> can be any descriptive name tag you need in the output
 <変調方式> は下記のいずれかである:

@@ -21,7 +21,7 @@ rtl_433は、portable C(C99 スタンダード)で記述されており、Linux 
 
 詳細は右記参照のこと [BUILDING.md](docs/BUILDING.md)
 
-Debian (sid) 又は Ubuntu (19.10+) 環境下では、 `apt-get install rtl-433` for other distros check https://repology.org/project/rtl-433/versions
+Debian (sid) 又は Ubuntu (19.10+) 環境下では `apt-get install rtl-433` とし、他のディストリビューションについては、 https://repology.org/project/rtl-433/versions を確認してください。
 
 FreeBSD では、 `pkg install rtl-433`。
 
@@ -59,12 +59,12 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-G] ブラックリストのに登録されているデバイスプロトコルのデコードを有効にする（試験用限定）。
   [-X <spec> | help] 汎用目的デコーダを追加する (prepend -R 0 to disable all decoders)
   [-Y auto | classic | minmax] FSK パルス検出モード
-  [-Y level=<dB level>] 手動パルス測定時の dB レベル (-1.0 to -30.0) (0=auto)。
-  [-Y minlevel=<dB level>] 手動パルス測定時の最小 dB レベル (-1.0 to -99.0)。
-  [-Y minsnr=<dB level>] 手動パルス測定時の最小 S/N 比 (1.0 to 99.0)。
+  [-Y level=<dB レベル>] 手動パルス測定時の dB レベル (-1.0 to -30.0) (0=auto)。
+  [-Y minlevel=<dB レベル>] 手動パルス測定時の最小 dB レベル (-1.0 to -99.0)。
+  [-Y minsnr=<dB レベル>] 手動パルス測定時の最小 S/N 比 (1.0 to 99.0)。
   [-Y autolevel] Set minlevel automatically based on average estimated noise.
   [-Y squelch] Skip frames below estimated noise level to reduce cpu load.
-  [-Y ampest | magest] Choose amplitude or magnitude level estimator.
+  [-Y ampest | magest] レベルの推定に最大振幅又は瞬間振幅のいずれを用いるか選択する。
 		= 解析/デバッグ オプション =
   [-a] 解析モード。 受信信号の詳細をテキストで表示する。
   [-A] パルスアナライザ。パルス解析を可能とし、デコードを試みる。
@@ -80,7 +80,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-F kv | json | csv | mqtt | influx | syslog | null | help] Produce decoded output in given format.
        Append output to file with :<ファイル名> (例： -F csv:log.csv), defaults to stdout.
        Specify host/port for syslog with 例： -F syslog:127.0.0.1:1514
-  [-M time[:<オプション>] | protocol | level | noise[:secs] | stats | bits | help] Add various meta data to each output.
+  [-M time[:<オプション>] | protocol | level | noise[:secs] | stats | bits | help] 様々なメタデータを各出力に付加する。
   [-K FILE | PATH | <tag> | <key>=<tag>] Add an expanded token or fixed tag to every output line.
   [-C native | si | customary] Convert units in decoded output.
   [-n <値>] 取得するサンプル数の指定 (各サンプルは I/Q のペア)
@@ -328,8 +328,8 @@ where:
 	FSK_PCM :         FSK パルス符号変調
 	FSK_PWM :         FSK パルス幅変調
 	FSK_MC_ZEROBIT :  先頭が固定長 0bit のマンチェスター符号
-<short>, <long>, <sync> は、us 単位の基準変調間隔
-<reset>, <gap>, <tolerance> are maximum modulation timings in us:
+<short>, <long>, <sync> は、us 単位で基準変調間隔
+<reset>, <gap>, <tolerance> は、us 単位で変調タイミングの最大値:
 PCM     short: 基準パルス幅 [us]
          long: 基準ビット期間幅 [us]
 PPM     short: 基準 '0' 空白幅 [us]　（訳注：この辺りの定数の定義が分からない方は、「初級　電磁波盗聴」を参照のこと）
@@ -361,7 +361,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 		= 出力フォーマットオプション =
   [-F kv|json|csv|mqtt|influx|syslog|null] 復調済み出力を指定フォーマットで生成する。
 	このオプションを指定しなかった場合、デフォルトではKVが出力形式となる。 Use "-F null" to remove the default.
-	Append output to file with :<ファイル名> (例： -F csv:log.csv), defaults to stdout.
+	出力をファイルに追加 :<ファイル名> (例： -F csv:log.csv)、 デフォルトでは stdout に出力する。
 	Specify MQTT server with 例： -F mqtt://localhost:1883
 	Add MQTT options with 例： -F "mqtt://host:1883,opt=arg"
 	MQTT options are: user=foo, pass=bar, retain[=0|1], <format>[=topic]
@@ -373,8 +373,8 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 	例： -F "mqtt://localhost:1883,user=USERNAME,pass=PASSWORD,retain=0,devices=rtl_433[/id]"
 	With MQTT each rtl_433 instance needs a distinct driver selection. The MQTT Client-ID is computed from the driver string.
 	If you use multiple RTL-SDR, perhaps set a serial and select by that (helps not to get the wrong antenna).
-	Specify InfluxDB 2.0 server with e.g. -F "influx://localhost:9999/api/v2/write?org=<org>&bucket=<bucket>,token=<authtoken>"
-	Specify InfluxDB 1.x server with e.g. -F "influx://localhost:8086/write?db=<db>&p=<password>&u=<user>"
+	InfluxDB 2.0 サーバーを指定する。例： -F "influx://localhost:9999/api/v2/write?org=<org>&bucket=<bucket>,token=<authtoken>"　（訳注：「InfluxDB」とは、IOT用の時系列データに特化したデータベース）
+	InfluxDB 1.x サーバーを指定する。例： -F "influx://localhost:8086/write?db=<db>&p=<password>&u=<user>"
 	  Additional parameter -M time:unix:usec:utc for correct timestamps in InfluxDB recommended
 	Specify host/port for syslog with e.g. -F syslog:127.0.0.1:1514
 

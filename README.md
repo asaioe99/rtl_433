@@ -336,10 +336,10 @@ PPM     short: 基準 '0' 空白幅 [us]　（訳注：この辺りの定数の�
          long: 基準 '1' 空白幅 [us]
 PWM     short: 基準 '1' パルス幅 [us]
          long: 基準 '0' パルス幅 [us]
-         sync: Nominal width of sync pulse [us] (optional)
+         sync: Nominal width of sync pulse [us] (オプション)
 common    gap: 次のビット列が始まるまでの最大空白時間 [us]
-        reset: Maximum gap size before End Of Message [us]
-    tolerance: Maximum pulse deviation [us] (optional).
+        reset: メッセージ終端までに含まれる最大の空白時間 [us]
+    tolerance: Maximum pulse deviation [us] (オプション).
 選択可能なオプションは下記の通り:
 	bits=<n> : １個のデータ列に、最低でも <n> bit 以上含まれていた場合のみマッチする。
 	rows=<n> : 最低でも <n> 個のデータ列が含まれた場合のみマッチする。
@@ -365,7 +365,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 	Specify MQTT server with 例： -F mqtt://localhost:1883
 	Add MQTT options with 例： -F "mqtt://host:1883,opt=arg"
 	MQTT options are: user=foo, pass=bar, retain[=0|1], <format>[=topic]
-	Supported MQTT フォーマット: (default is all)
+	Supported MQTT フォーマット: (デフォルトは全て)
 	  events: posts JSON event data
 	  states: posts JSON state data
 	  devices: posts device and sensor info in nested topics
@@ -393,7 +393,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 		"usec" and "utc" can be combined with other options, eg. "time:unix:utc:usec".
 	Use "protocol" / "noprotocol" to output the decoder protocol number meta data.
 	Use "level" to add Modulation, Frequency, RSSI, SNR, and Noise meta data.
-	Use "noise[:secs]" to report estimated noise level at intervals (デフォルト: 10 秒).
+	"noise[:secs]" を使用することで、推定ノイズレベルを一定間隔でレポートする。(デフォルト: 10 秒)
 	Use "stats[:[<level>][:<interval>]]" to report statistics (デフォルト: 600 秒).
 	  level 0: no report, 1: report successful devices, 2: report active devices, 3: report all
 	Use "bits" to add bit representation to code outputs (デバッグ用).

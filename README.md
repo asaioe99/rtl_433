@@ -341,8 +341,8 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
         reset: Maximum gap size before End Of Message [us]
     tolerance: Maximum pulse deviation [us] (optional).
 選択可能なオプションは下記の通り:
-	bits=<n> : only match if at least one row has <n> bits
-	rows=<n> : only match if there are <n> rows
+	bits=<n> : １個のデータ列に、最低でも <n> bit 以上含まれていた場合のみマッチする。
+	rows=<n> : 最低でも <n> 個のデータ列が含まれた場合のみマッチする。
 	repeats=<n> : only match if some row is repeated <n> times
 		use opt>=n to match at least <n> and opt<=n to match at most <n>
 	invert : 全ての bit を反転する

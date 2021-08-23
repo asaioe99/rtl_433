@@ -284,11 +284,11 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 	RTL-SDR のデバイスドライバは利用可能です。
   [-d <RTL-SDR USB デバイスインデックス>] (デフォルト: 0)
   [-d :<RTL-SDR USB デバイスシリアル (can be set with rtl_eeprom -s)>]
-	To set gain for RTL-SDR use -g <利得> to set an overall gain in dB.
+	RTL-SDR で利得を設定する場合は、-g <利得> を使用し dB 単位で全体の値を設定する。
 	SoapySDR デバイスドライバで使用可能である。
   [-d ""] デフォルトの SoapySDR デバイスを開く。
   [-d driver=rtlsdr] Open e.g. specific SoapySDR device
-	To set gain for SoapySDR use -g ELEM=val,ELEM=val,... e.g. -g LNA=20,TIA=8,PGA=2 (LimeSDR 用).
+	SoapySDR で利得を設定する場合は、-g ELEM=val,ELEM=val,... を使用すること。 例：-g LNA=20,TIA=8,PGA=2 (LimeSDR 用)
   [-d rtl_tcp[:[//]host[:port]] (デフォルト: localhost:1234)
 	Specify host/port to connect to with e.g. -d rtl_tcp:127.0.0.1:1234
 
@@ -304,7 +304,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 -X <spec> オプションにより、汎用フレックスデコーダを使用可能にできる。
 （訳注：パルス変調に関する各種定義は、https://www.keyence.co.jp/ss/products/recorder/lab/pulse/base.jspが詳しい）
 
-<spec> is "key=value[,key=value...]"
+<spec> は、 "key=value[,key=value...]" となる。
 共通の keys は以下の通り:
 	name=<名前> (又は: n=<名前>)
 	modulation=<変調方式> (or: m=<変調方式>)

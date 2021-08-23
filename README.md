@@ -448,7 +448,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 | `rtl_433` | デフォルトの受信モードであり、最初に見つかったデバイスを使用して 433.92 MHz を、サンプリングレート 250k で受信します。
 | `rtl_433 -C si` | Default receive mode, also convert units to metric system.
 | `rtl_433 -f 868M -s 1024k` | 868 MHz を、サンプリングレート 1024k で受信します。
-| `rtl_433 -M hires -M level` | Report microsecond accurate timestamps and add reception levels (利得に依存).
+| `rtl_433 -M hires -M level` | マイクロ秒単位の正確なタイムスタンプと、受信レベル(利得に依存)をレポートする。
 | `rtl_433 -R 1 -R 8 -R 43` | 指定したデバイスに対してのみ復調を有効にする。
 | `rtl_433 -A` | パルス解析を有効にします。パルスのタイミング、空白、期間を要約し表示します。Can be used with `-R 0` to disable decoders.
 | `rtl_433 -S all -T 120` | 検出したすべての信号を次の様式 (`g###_###M_###k.cu8`)で保存し、2分間動作します。

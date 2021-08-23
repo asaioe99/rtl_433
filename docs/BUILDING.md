@@ -1,6 +1,6 @@
 # Building rtl_433
 
-rtl_433 currently supports these input types:
+rtl_433 は現在、以下の入力形式をサポートしている:
 * [RTL-SDR](http://sdr.osmocom.org/trac/wiki/rtl-sdr) (optional, recommended)
 * [SoapySDR](https://github.com/pothosware/SoapySDR/wiki) (optional)
 * files: CU8, CS16, CF32 I/Q data, U16 AM data (built-in)

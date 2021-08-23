@@ -339,7 +339,7 @@ PWM     short: 基準 '1' パルス幅 [us]
          sync: Nominal width of sync pulse [us] (オプション)
 common    gap: 次のビット列が始まるまでの最大空白時間 [us]
         reset: メッセージ終端までに含まれる最大の空白時間 [us]
-    tolerance: Maximum pulse deviation [us] (オプション).
+    tolerance: 最大パルス偏差（変動）[us] (オプション)
 選択可能なオプションは下記の通り:
 	bits=<n> : １個のデータ列に、最低でも <n> bit 以上含まれていた場合のみマッチする。
 	rows=<n> : 最低でも <n> 個のデータ列が含まれた場合のみマッチする。
@@ -362,7 +362,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
   [-F kv|json|csv|mqtt|influx|syslog|null] 復調済み出力を指定フォーマットで生成する。
 	このオプションを指定しなかった場合、デフォルトではKVが出力形式となる。 Use "-F null" to remove the default.
 	出力をファイルに追加 :<ファイル名> (例： -F csv:log.csv)、 デフォルトでは stdout に出力する。
-	Specify MQTT server with 例： -F mqtt://localhost:1883
+	MQTT サーバーを指定する。 例： -F mqtt://localhost:1883
 	Add MQTT options with 例： -F "mqtt://host:1883,opt=arg"
 	MQTT options are: user=foo, pass=bar, retain[=0|1], <format>[=topic]
 	Supported MQTT フォーマット: (デフォルトは全て)
@@ -419,7 +419,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 	forced overrides: am:s16:path/filename.ext
 
 	Reading from pipes also support format options.
-	例： reading complex 32-bit float: CU32:-
+	例： 複素数 32-bit float を読み込む: CU32:-
 
 
 		= 書き込みファイルオプション =

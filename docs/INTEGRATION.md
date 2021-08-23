@@ -10,7 +10,7 @@ If you are a user of one these systems, please help to confirm and extend the in
 
 [openHAB](https://www.openhab.org/) - open source automation software for your home
 
-See the wiki page https://github.com/merbanan/rtl_433/wiki/How-to-integrate-rtl_433-sensors-into-openHAB-via-MQTT
+wiki を参照のこと https://github.com/merbanan/rtl_433/wiki/How-to-integrate-rtl_433-sensors-into-openHAB-via-MQTT
 
 Some help comes from https://community.openhab.org/t/rtl-433-to-mqtt/80652/3
 

@@ -55,7 +55,7 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-s <sample rate>] サンプルレートの設定 (デフォルト: 250000 Hz)
 		= 復調オプション =
   [-R <デバイス> | help] 特定のデバイスに対する復調プロトコルを有効にする (このオプションは複数回追加して使用できます)
-       Specify a negative number to disable a device decoding protocol (このオプションは複数回追加して使用できます)
+       負の数を指定し、デバイスの復調プロトコルを無効にする。(このオプションは複数回追加して使用できます)
   [-G] ブラックリストのに登録されているデバイスプロトコルのデコードを有効にする（試験用限定）。
   [-X <spec> | help] 汎用目的デコーダを追加する (prepend -R 0 to disable all decoders)
   [-Y auto | classic | minmax] FSK パルス検出モード
@@ -346,7 +346,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 	repeats=<n> : only match if some row is repeated <n> times
 		use opt>=n to match at least <n> and opt<=n to match at most <n>
 	invert : 全ての bit を反転する
-	reflect : reflect each byte (MSB first to MSB last)
+	reflect : バイト列を前後逆向きにする (MSB の最初を最後にする)
 	match=<bits> : only match if the <bits> are found
 	preamble=<bits> : match and align at the <bits> preamble
 		<bits> is a row spec of {<bit count>}<bits as hex number>
@@ -403,8 +403,8 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
   [-r <ファイル名>] 受信機ではなく、入力ファイルからデータを読み込む。
 	Parameters are detected from the full path, file name, and extension.
 
-	A center frequency is detected as (fractional) number suffixed with 'M',
-	'Hz', 'kHz', 'MHz', or 'GHz'.
+	中心周波数を (分数) 数値接尾語 'M' で指定する。
+	'Hz', 'kHz', 'MHz', 又は 'GHz'
 
 	A sample rate is detected as (fractional) number suffixed with 'k',
 	'sps', 'ksps', 'Msps', or 'Gsps'.

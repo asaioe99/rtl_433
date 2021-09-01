@@ -69,16 +69,16 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-a] 解析モード。 受信信号の詳細をテキストで表示する。
   [-A] パルスアナライザ。パルス解析を可能とし、デコードを試みる。
        パルスアナライザを出力のみにしたい場合、-R 0 で全てのデコーダを無効にできる。
-  [-y <code>] Verify decoding of demodulated test data (e.g. "{25}fb2dd58") with enabled devices
+  [-y <code>] Verify decoding of demodulated test data (例： "{25}fb2dd58") with enabled devices
 		= ファイル I/O オプション =
   [-S none | all | unknown | known] 信号の自動保存。 信号毎にファイルを作成する。
-       メモ: raw I/Q サンプルを保存します (uint8 pcm, 2 channel)。 Preferred mode for generating test files.
+       メモ: raw I/Q サンプルを保存します (uint8 pcm, 2 チャンネル)。 Preferred mode for generating test files.
   [-r <ファイル名> | ヘルプ] データを受信機ではなく入力ファイルから読み込む。
   [-w <ファイル名> | ヘルプ] データストリームを出力ファイルに保存する。 (a '-' dumps samples to stdout)
   [-W <ファイル名> | ヘルプ] データストリームを出力ファイルに保存し、既に存在するファイルに上書きする。
 		= データ出力オプション =
-  [-F kv | json | csv | mqtt | influx | syslog | null | help] Produce decoded output in given format.
-       Append output to file with :<ファイル名> (例： -F csv:log.csv), defaults to stdout.
+  [-F kv | json | csv | mqtt | influx | syslog | null | help] デコードした出力を指定したフォーマットで生成する。
+       Append output to file with :<ファイル名> (例： -F csv:log.csv), デフォルトでは stdout に出力する。
        Specify host/port for syslog with 例： -F syslog:127.0.0.1:1514
   [-M time[:<オプション>] | protocol | level | noise[:secs] | stats | bits | help] 様々なメタデータを各出力に付加する。
   [-K FILE | PATH | <tag> | <key>=<tag>] Add an expanded token or fixed tag to every output line.

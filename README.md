@@ -453,7 +453,7 @@ common    gap: 次のビット列が始まるまでの最大空白時間 [us]
 | `rtl_433 -A` | パルス解析を有効にします。パルスのタイミング、空白、期間を要約し表示します。Can be used with `-R 0` to disable decoders.
 | `rtl_433 -S all -T 120` | 検出したすべての信号を次の様式 (`g###_###M_###k.cu8`)で保存し、2分間動作します。
 | `rtl_433 -K FILE -r file_name` | 受信機ではなく、入力ファイルからデータを読み込む。 Tag output with filenames.
-| `rtl_433 -F json -M utc \| mosquitto_pub -t home/rtl_433 -l` | Will pipe the output to network as JSON formatted MQTT messages. A test MQTT client can be found in `examples/mqtt_rtl_433_test_client.py`.
+| `rtl_433 -F json -M utc \| mosquitto_pub -t home/rtl_433 -l` | 出力を JSON フォーマットの MQTT メッセージでネットワークにパイプする。A test MQTT client can be found in `examples/mqtt_rtl_433_test_client.py`.
 | `rtl_433 -f 433.53M -f 434.02M -H 15` | 15秒のホッピング間隔で、2つの周波数をポーリングする。
 
 ## Googleグループ

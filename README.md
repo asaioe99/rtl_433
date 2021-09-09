@@ -43,16 +43,16 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
   [-V] バージョン情報を表示し、終了する。
   [-v] Increase verbosity (このオプションは複数回追加して使用できます).
        -v : verbose, -vv : verbose decoders, -vvv : debug decoders, -vvvv : trace decoding).
-  [-c <path>] 設定オプションをファイルから読み込む。
+  [-c <パス>] 設定オプションをファイルから読み込む。
 		= Tuner オプション =
-  [-d <RTL-SDR USB device index> | :<RTL-SDR USB デバイスシリアル> | <SoapySDR デバイスクエリ> | rtl_tcp | help]
+  [-d <RTL-SDR USB デバイスインデックス> | :<RTL-SDR USB デバイスシリアル> | <SoapySDR デバイスクエリ> | rtl_tcp | help]
   [-g <利得> | help] (デフォルト: auto)
   [-t <設定>] SoapySDR デバイスの keyword=value 設定リストを適用する。
        例： -t "antenna=A,bandwidth=4.5M,rfnotch_ctrl=false"
   [-f <周波数>] 受信周波数 (デフォルト: 433920000 Hz)
   [-H <秒数>] 複数の周波数を巡回するためのホッピング間隔 (デフォルト: 600 秒)
   [-p <ppm_error] rtl-sdr のチューナーに対する周波数オフセットエラーの校正値 (デフォルト: 0)
-  [-s <sample rate>] サンプルレートの設定 (デフォルト: 250000 Hz)
+  [-s <サンプルレート>] サンプルレートの設定 (デフォルト: 250000 Hz)
 		= 復調オプション =
   [-R <デバイス> | help] 特定のデバイスに対する復調プロトコルを有効にする (このオプションは複数回追加して使用できます)
        負の数を指定し、デバイスの復調プロトコルを無効にする。(このオプションは複数回追加して使用できます)

@@ -1,4 +1,4 @@
-# Building rtl_433
+# rtl_433 のビルド方法
 
 rtl_433 は現在、以下の入力形式をサポートしている:
 * [RTL-SDR](http://sdr.osmocom.org/trac/wiki/rtl-sdr) (optional, recommended)

@@ -41,8 +41,8 @@ rtl_433のDockerイメージは以下で有効です。 [on the github page of h
 
 		= 一般オプション =
   [-V] バージョン情報を表示し、終了する。
-  [-v] Increase verbosity (このオプションは複数回追加して使用できます).
-       -v : verbose, -vv : verbose decoders, -vvv : debug decoders, -vvvv : trace decoding).
+  [-v] 詳細表示 (このオプションは複数回追加して使用できます).
+       -v : verbose, -vv : verbose decoders, -vvv : debug decoders, -vvvv : デコードのトレース).
   [-c <パス>] 設定オプションをファイルから読み込む。
 		= Tuner オプション =
   [-d <RTL-SDR USB デバイスインデックス> | :<RTL-SDR USB デバイスシリアル> | <SoapySDR デバイスクエリ> | rtl_tcp | help]
